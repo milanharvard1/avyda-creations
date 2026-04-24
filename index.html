@@ -55,8 +55,23 @@ nav {
 .nav-links{display:flex;gap:2.5rem;list-style:none;}
 .nav-links a{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(61,32,82,0.55);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover{color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:1rem;}
 .nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.55rem 1.5rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;cursor:pointer;transition:all 0.2s;}
 .nav-cta:hover{background:var(--gold);color:#fff;}
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle{
+  display:flex;align-items:center;gap:0;
+  border:1px solid rgba(212,160,200,0.4);
+  border-radius:2px;overflow:hidden;
+}
+.lang-btn{
+  background:transparent;border:none;color:rgba(61,32,82,0.5);
+  padding:0.35rem 0.7rem;font-family:'Cinzel',serif;font-size:0.6rem;
+  letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;
+}
+.lang-btn.active{background:var(--gold);color:#fff;}
+.lang-btn:not(.active):hover{background:rgba(212,160,200,0.15);}
 
 /* ── HERO ── */
 .hero{
@@ -381,12 +396,18 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
     <span>✦ Fae-Inspired Crochet ✦</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#book">Custom Orders</a></li>
-    <li><a href="#about">Our Story</a></li>
+    <li><a href="#shop" data-en="Shop" data-es="Tienda">Shop</a></li>
+    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+    <li><a href="#book" data-en="Custom Orders" data-es="Pedidos">Custom Orders</a></li>
+    <li><a href="#about" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
   </ul>
-  <button class="nav-cta">Order Custom</button>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+    <button class="nav-cta" data-en="Order Custom" data-es="Pedir Ahora">Order Custom</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -398,51 +419,51 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
   <span class="floater f3">✨</span>
   <span class="floater f4">🪡</span>
   <div class="hero-content">
-    <p class="hero-eyebrow">✦ &nbsp; Handcrafted in Madison, WI &nbsp; ✦ &nbsp; Fae &amp; Irish Spirit &nbsp; ✦</p>
-    <h1 class="hero-title">Woven from<br><em>Ancient Magic</em></h1>
+    <p class="hero-eyebrow" data-en="✦ &nbsp; Handcrafted in Madison, WI &nbsp; ✦ &nbsp; Fae &amp; Irish Spirit &nbsp; ✦" data-es="✦ &nbsp; Hecho a mano en Madison, WI &nbsp; ✦ &nbsp; Espíritu Fae e Irlandés &nbsp; ✦">✦ &nbsp; Handcrafted in Madison, WI &nbsp; ✦ &nbsp; Fae &amp; Irish Spirit &nbsp; ✦</p>
+    <h1 class="hero-title" data-en="Woven from<br><em>Ancient Magic</em>" data-es="Tejido desde<br><em>Magia Antigua</em>">Woven from<br><em>Ancient Magic</em></h1>
     <div class="hero-divider"><span>✦ ✦ ✦</span></div>
-    <p class="hero-sub">Each piece is a spell — handcrafted crochet creations rooted in Celtic lore, Irish folklore, and the wild enchantment of the natural world.</p>
+    <p class="hero-sub" data-en="Each piece is a spell — handcrafted crochet creations rooted in Celtic lore, Irish folklore, and the wild enchantment of the natural world." data-es="Cada pieza es un hechizo — creaciones de crochet hechas a mano, arraigadas en la tradición celta, el folclore irlandés y el encanto salvaje del mundo natural.">Each piece is a spell — handcrafted crochet creations rooted in Celtic lore, Irish folklore, and the wild enchantment of the natural world.</p>
     <div class="hero-actions">
-      <a href="#shop" class="btn-gold">Enter the Shop</a>
-      <a href="#book" class="btn-outline">Request Custom</a>
+      <a href="#shop" class="btn-gold" data-en="Enter the Shop" data-es="Entrar a la Tienda">Enter the Shop</a>
+      <a href="#book" class="btn-outline" data-en="Request Custom" data-es="Pedir Personalizado">Request Custom</a>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee-bar">
-  <div class="marquee-track">
-    <span class="marquee-item">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Irish Celtic Motifs</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Enchanted Yarn Creations</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Irish Celtic Motifs</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item">Enchanted Yarn Creations</span><span class="marquee-item marquee-sep">✦</span>
+  <div class="marquee-track" id="marquee-track">
+    <span class="marquee-item" data-en="Handmade Crochet" data-es="Crochet Artesanal">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños Inspirados en las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Irish Celtic Motifs" data-es="Motivos Celtas Irlandeses">Irish Celtic Motifs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Custom Orders Welcome" data-es="Pedidos Personalizados">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Made with Love in Madison" data-es="Hecho con Amor en Madison">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Enchanted Yarn Creations" data-es="Creaciones de Hilo Encantadas">Enchanted Yarn Creations</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Handmade Crochet" data-es="Crochet Artesanal">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños Inspirados en las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Irish Celtic Motifs" data-es="Motivos Celtas Irlandeses">Irish Celtic Motifs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Custom Orders Welcome" data-es="Pedidos Personalizados">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Made with Love in Madison" data-es="Hecho con Amor en Madison">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Enchanted Yarn Creations" data-es="Creaciones de Hilo Encantadas">Enchanted Yarn Creations</span><span class="marquee-item marquee-sep">✦</span>
   </div>
 </div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-visual">
-    <div class="about-tag">Est. Madison, WI</div>
+    <div class="about-tag" data-en="Est. Madison, WI" data-es="Fundado en Madison, WI">Est. Madison, WI</div>
     <div class="about-knot">🧶</div>
     <div class="about-corner"></div>
   </div>
   <div class="about-content reveal">
-    <p class="section-label">Our Story</p>
-    <h2 class="section-title">Where yarn becomes<br><em>enchantment</em></h2>
-    <p class="about-body">Avyda Creations was born from a love of Celtic mythology and the meditative art of crochet. Every stitch carries intention — every piece is a small act of magic, made by hand, made with heart.</p>
+    <p class="section-label" data-en="Our Story" data-es="Nuestra Historia">Our Story</p>
+    <h2 class="section-title" data-en="Where yarn becomes<br><em>enchantment</em>" data-es="Donde el hilo se convierte<br>en <em>encantamiento</em>">Where yarn becomes<br><em>enchantment</em></h2>
+    <p class="about-body" data-en="Avyda Creations was born from a love of Celtic mythology and the meditative art of crochet. Every stitch carries intention — every piece is a small act of magic, made by hand, made with heart." data-es="Avyda Creations nació del amor por la mitología celta y el arte meditativo del crochet. Cada punto lleva una intención — cada pieza es un pequeño acto de magia, hecho a mano, hecho con corazón.">Avyda Creations was born from a love of Celtic mythology and the meditative art of crochet. Every stitch carries intention — every piece is a small act of magic, made by hand, made with heart.</p>
     <div class="traits">
-      <div class="trait">100% handmade — no machines, ever</div>
-      <div class="trait">Inspired by Irish folklore &amp; fae mythology</div>
-      <div class="trait">Custom orders crafted just for you</div>
-      <div class="trait">Sustainably sourced, natural-feel yarns</div>
+      <div class="trait" data-en="100% handmade — no machines, ever" data-es="100% hecho a mano — sin máquinas, jamás">100% handmade — no machines, ever</div>
+      <div class="trait" data-en="Inspired by Irish folklore &amp; fae mythology" data-es="Inspirado en el folclore irlandés y la mitología de las hadas">Inspired by Irish folklore &amp; fae mythology</div>
+      <div class="trait" data-en="Custom orders crafted just for you" data-es="Pedidos personalizados creados solo para ti">Custom orders crafted just for you</div>
+      <div class="trait" data-en="Sustainably sourced, natural-feel yarns" data-es="Hilos de origen sostenible y tacto natural">Sustainably sourced, natural-feel yarns</div>
     </div>
   </div>
 </section>
@@ -450,85 +471,85 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <!-- PRODUCTS -->
 <section class="products" id="shop">
   <div class="products-header reveal">
-    <p class="section-label">The Collection</p>
-    <h2 class="section-title">Pieces woven with <em>intention</em></h2>
+    <p class="section-label" data-en="The Collection" data-es="La Colección">The Collection</p>
+    <h2 class="section-title" data-en="Pieces woven with <em>intention</em>" data-es="Piezas tejidas con <em>intención</em>">Pieces woven with <em>intention</em></h2>
   </div>
   <div class="products-grid">
     <div class="product-card reveal">
       <div class="product-img pi1">🧣</div>
       <div class="product-info">
-        <p class="product-cat">Wearables</p>
-        <h3 class="product-name">Forest Fae Wrap</h3>
-        <p class="product-desc">A flowing moss-green shawl with delicate leaf lace border. Warm as a forest in autumn.</p>
+        <p class="product-cat" data-en="Wearables" data-es="Ropa y Accesorios">Wearables</p>
+        <h3 class="product-name" data-en="Forest Fae Wrap" data-es="Chal del Bosque Feérico">Forest Fae Wrap</h3>
+        <p class="product-desc" data-en="A flowing moss-green shawl with delicate leaf lace border. Warm as a forest in autumn." data-es="Un chal verde musgo con delicado borde de encaje de hojas. Cálido como un bosque en otoño.">A flowing moss-green shawl with delicate leaf lace border. Warm as a forest in autumn.</p>
         <div class="product-foot">
           <span class="product-price">$68</span>
-          <button class="product-add">Add to Cart</button>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi2">
-        <div class="new-badge">New</div>
+        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>
         🧢
       </div>
       <div class="product-info">
-        <p class="product-cat">Accessories</p>
-        <h3 class="product-name">Celtic Knot Beanie</h3>
-        <p class="product-desc">Hand-stitched Celtic knotwork pattern in deep forest tones. A crown for the wild-hearted.</p>
+        <p class="product-cat" data-en="Accessories" data-es="Accesorios">Accessories</p>
+        <h3 class="product-name" data-en="Celtic Knot Beanie" data-es="Gorro de Nudo Celta">Celtic Knot Beanie</h3>
+        <p class="product-desc" data-en="Hand-stitched Celtic knotwork pattern in deep forest tones. A crown for the wild-hearted." data-es="Patrón de nudo celta cosido a mano en tonos de bosque profundo. Una corona para los de corazón salvaje.">Hand-stitched Celtic knotwork pattern in deep forest tones. A crown for the wild-hearted.</p>
         <div class="product-foot">
           <span class="product-price">$42</span>
-          <button class="product-add">Add to Cart</button>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi3">🌙</div>
       <div class="product-info">
-        <p class="product-cat">Home &amp; Décor</p>
-        <h3 class="product-name">Moon &amp; Thorn Wall Piece</h3>
-        <p class="product-desc">A woven wall hanging with crescent moon and briar motifs. Dark, dreamy, otherworldly.</p>
+        <p class="product-cat" data-en="Home &amp; Décor" data-es="Hogar y Decoración">Home &amp; Décor</p>
+        <h3 class="product-name" data-en="Moon &amp; Thorn Wall Piece" data-es="Colgante Luna y Espino">Moon &amp; Thorn Wall Piece</h3>
+        <p class="product-desc" data-en="A woven wall hanging with crescent moon and briar motifs. Dark, dreamy, otherworldly." data-es="Colgante tejido con motivos de luna creciente y zarza. Oscuro, soñador, de otro mundo.">A woven wall hanging with crescent moon and briar motifs. Dark, dreamy, otherworldly.</p>
         <div class="product-foot">
           <span class="product-price">$85</span>
-          <button class="product-add">Add to Cart</button>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi4">🌿</div>
       <div class="product-info">
-        <p class="product-cat">Amigurumi</p>
-        <h3 class="product-name">Fae Woodland Fox</h3>
-        <p class="product-desc">A soft crocheted fox with tiny mushroom and acorn details. A guardian of the in-between.</p>
+        <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
+        <h3 class="product-name" data-en="Fae Woodland Fox" data-es="Zorro del Bosque Feérico">Fae Woodland Fox</h3>
+        <p class="product-desc" data-en="A soft crocheted fox with tiny mushroom and acorn details. A guardian of the in-between." data-es="Un suave zorro tejido a crochet con diminutos detalles de hongos y bellotas. Un guardián del entre-mundos.">A soft crocheted fox with tiny mushroom and acorn details. A guardian of the in-between.</p>
         <div class="product-foot">
           <span class="product-price">$55</span>
-          <button class="product-add">Add to Cart</button>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi5">
-        <div class="new-badge">New</div>
+        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>
         🍄
       </div>
       <div class="product-info">
-        <p class="product-cat">Amigurumi</p>
-        <h3 class="product-name">Cottagecore Mushroom Set</h3>
-        <p class="product-desc">Three little crochet mushrooms — red cap, brown cap, ghost white. A fairy ring for your shelf.</p>
+        <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
+        <h3 class="product-name" data-en="Cottagecore Mushroom Set" data-es="Set de Hongos Cottagecore">Cottagecore Mushroom Set</h3>
+        <p class="product-desc" data-en="Three little crochet mushrooms — red cap, brown cap, ghost white. A fairy ring for your shelf." data-es="Tres pequeños hongos de crochet — rojo, marrón y blanco fantasma. Un círculo de hadas para tu estante.">Three little crochet mushrooms — red cap, brown cap, ghost white. A fairy ring for your shelf.</p>
         <div class="product-foot">
           <span class="product-price">$38</span>
-          <button class="product-add">Add to Cart</button>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi6">🌸</div>
       <div class="product-info">
-        <p class="product-cat">Bags &amp; Totes</p>
-        <h3 class="product-name">Wildflower Market Bag</h3>
-        <p class="product-desc">Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy.</p>
+        <p class="product-cat" data-en="Bags &amp; Totes" data-es="Bolsas y Totes">Bags &amp; Totes</p>
+        <h3 class="product-name" data-en="Wildflower Market Bag" data-es="Bolsa de Mercado Silvestre">Wildflower Market Bag</h3>
+        <p class="product-desc" data-en="Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy." data-es="Tote de tejido abierto con apliques florales de crochet. Ligera, resistente y llena de energía del prado.">Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy.</p>
         <div class="product-foot">
           <span class="product-price">$48</span>
-          <button class="product-add">Add to Cart</button>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -538,27 +559,27 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="reveal" style="text-align:center;">
-    <p class="section-label">What We Offer</p>
-    <h2 class="section-title">More than crochet —<br>a whole <em>craft</em></h2>
+    <p class="section-label" data-en="What We Offer" data-es="Lo Que Ofrecemos">What We Offer</p>
+    <h2 class="section-title" data-en="More than crochet —<br>a whole <em>craft</em>" data-es="Más que crochet —<br>todo un <em>arte</em>">More than crochet —<br>a whole <em>craft</em></h2>
   </div>
   <div class="services-grid">
     <div class="service-item reveal">
       <span class="service-icon">🪡</span>
-      <h3 class="service-name">Custom Commissions</h3>
-      <p class="service-desc">Have a vision? We'll bring it to life in yarn. From character plushies to heirloom blankets, no idea is too wild.</p>
-      <a href="#book" class="service-link">Start a Request →</a>
+      <h3 class="service-name" data-en="Custom Commissions" data-es="Encargos Personalizados">Custom Commissions</h3>
+      <p class="service-desc" data-en="Have a vision? We'll bring it to life in yarn. From character plushies to heirloom blankets, no idea is too wild." data-es="¿Tienes una visión? La haremos realidad en hilo. Desde peluches de personajes hasta mantas de herencia, ninguna idea es demasiado descabellada.">Have a vision? We'll bring it to life in yarn. From character plushies to heirloom blankets, no idea is too wild.</p>
+      <a href="#book" class="service-link" data-en="Start a Request →" data-es="Hacer un Pedido →">Start a Request →</a>
     </div>
     <div class="service-item reveal">
       <span class="service-icon">📖</span>
-      <h3 class="service-name">Crochet Patterns</h3>
-      <p class="service-desc">Digital PDF patterns for every skill level, with step-by-step illustrations and fae-inspired designs you won't find anywhere else.</p>
-      <a href="#shop" class="service-link">Browse Patterns →</a>
+      <h3 class="service-name" data-en="Crochet Patterns" data-es="Patrones de Crochet">Crochet Patterns</h3>
+      <p class="service-desc" data-en="Digital PDF patterns for every skill level, with step-by-step illustrations and fae-inspired designs you won't find anywhere else." data-es="Patrones PDF digitales para todos los niveles, con ilustraciones paso a paso y diseños inspirados en las hadas que no encontrarás en ningún otro lugar.">Digital PDF patterns for every skill level, with step-by-step illustrations and fae-inspired designs you won't find anywhere else.</p>
+      <a href="#shop" class="service-link" data-en="Browse Patterns →" data-es="Ver Patrones →">Browse Patterns →</a>
     </div>
     <div class="service-item reveal">
       <span class="service-icon">✨</span>
-      <h3 class="service-name">Gift Bundles</h3>
-      <p class="service-desc">Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for any occasion.</p>
-      <a href="#shop" class="service-link">Shop Bundles →</a>
+      <h3 class="service-name" data-en="Gift Bundles" data-es="Paquetes de Regalo">Gift Bundles</h3>
+      <p class="service-desc" data-en="Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for any occasion." data-es="Conjuntos seleccionados de piezas hechas a mano, bellamente envueltos y listos para encantar a alguien especial. Perfectos para cualquier ocasión.">Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for any occasion.</p>
+      <a href="#shop" class="service-link" data-en="Shop Bundles →" data-es="Ver Paquetes →">Shop Bundles →</a>
     </div>
   </div>
 </section>
@@ -566,42 +587,42 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <!-- BOOK -->
 <section class="book" id="book">
   <div class="book-left reveal">
-    <p class="section-label">Custom Orders</p>
-    <h2 class="section-title">Request something<br><em>just for you</em></h2>
-    <p class="book-body">Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours.</p>
+    <p class="section-label" data-en="Custom Orders" data-es="Pedidos Personalizados">Custom Orders</p>
+    <h2 class="section-title" data-en="Request something<br><em>just for you</em>" data-es="Pide algo<br><em>solo para ti</em>">Request something<br><em>just for you</em></h2>
+    <p class="book-body" data-en="Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours." data-es="Cada pieza personalizada comienza con una conversación. Cuéntame tu visión — los colores, la sensación, la magia que quieres que se teja — y crearé algo verdaderamente tuyo.">Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours.</p>
     <ul class="perks">
-      <li>Fully unique, made to your specifications</li>
-      <li>Natural and premium yarn options</li>
-      <li>Progress photos throughout the process</li>
-      <li>Ships anywhere in the US</li>
+      <li data-en="Fully unique, made to your specifications" data-es="Totalmente único, hecho a tus especificaciones">Fully unique, made to your specifications</li>
+      <li data-en="Natural and premium yarn options" data-es="Opciones de hilo natural y premium">Natural and premium yarn options</li>
+      <li data-en="Progress photos throughout the process" data-es="Fotos del proceso durante la creación">Progress photos throughout the process</li>
+      <li data-en="Ships anywhere in the US" data-es="Envíos a cualquier lugar de EE.UU.">Ships anywhere in the US</li>
     </ul>
-    <a href="#" class="btn-gold">View Portfolio</a>
+    <a href="#" class="btn-gold" data-en="View Portfolio" data-es="Ver Portafolio">View Portfolio</a>
   </div>
   <div class="book-right">
-    <p class="form-title">Begin your <em>commission</em></p>
+    <p class="form-title" data-en="Begin your <em>commission</em>" data-es="Inicia tu <em>encargo</em>">Begin your <em>commission</em></p>
     <div class="form">
       <div class="form-row">
-        <div class="field"><label>Your Name</label><input type="text" placeholder="Aisling O'Brien"/></div>
-        <div class="field"><label>Email</label><input type="email" placeholder="you@example.com"/></div>
+        <div class="field"><label data-en="Your Name" data-es="Tu Nombre">Your Name</label><input type="text" data-placeholder-en="Aisling O'Brien" data-placeholder-es="María García" placeholder="Aisling O'Brien"/></div>
+        <div class="field"><label data-en="Email" data-es="Correo Electrónico">Email</label><input type="email" placeholder="you@example.com"/></div>
       </div>
       <div class="field">
-        <label>What would you like made?</label>
+        <label data-en="What would you like made?" data-es="¿Qué te gustaría que hiciera?">What would you like made?</label>
         <select>
-          <option>Choose a category…</option>
-          <option>Wearable (shawl, beanie, etc.)</option>
-          <option>Amigurumi / Plushie</option>
-          <option>Home Décor</option>
-          <option>Bag or Tote</option>
-          <option>Gift Bundle</option>
-          <option>Pattern (digital)</option>
-          <option>Something else…</option>
+          <option data-en="Choose a category…" data-es="Elige una categoría…">Choose a category…</option>
+          <option data-en="Wearable (shawl, beanie, etc.)" data-es="Ropa (chal, gorro, etc.)">Wearable (shawl, beanie, etc.)</option>
+          <option data-en="Amigurumi / Plushie" data-es="Amigurumi / Peluche">Amigurumi / Plushie</option>
+          <option data-en="Home Décor" data-es="Decoración del Hogar">Home Décor</option>
+          <option data-en="Bag or Tote" data-es="Bolsa o Tote">Bag or Tote</option>
+          <option data-en="Gift Bundle" data-es="Paquete de Regalo">Gift Bundle</option>
+          <option data-en="Pattern (digital)" data-es="Patrón (digital)">Pattern (digital)</option>
+          <option data-en="Something else…" data-es="Algo más…">Something else…</option>
         </select>
       </div>
       <div class="field">
-        <label>Tell me about your vision</label>
-        <textarea rows="4" placeholder="Colors, characters, feelings, references — the more detail the better…"></textarea>
+        <label data-en="Tell me about your vision" data-es="Cuéntame tu visión">Tell me about your vision</label>
+        <textarea rows="4" data-placeholder-en="Colors, characters, feelings, references — the more detail the better…" data-placeholder-es="Colores, personajes, sensaciones, referencias — cuantos más detalles, mejor…" placeholder="Colors, characters, feelings, references — the more detail the better…"></textarea>
       </div>
-      <button class="btn-gold" style="align-self:flex-start;border:none;">Send Request ✦</button>
+      <button class="btn-gold" style="align-self:flex-start;border:none;" data-en="Send Request ✦" data-es="Enviar Pedido ✦">Send Request ✦</button>
     </div>
   </div>
 </section>
@@ -609,23 +630,23 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="reveal" style="text-align:center;">
-    <p class="section-label">From the Coven</p>
-    <h2 class="section-title">What our customers say</h2>
+    <p class="section-label" data-en="From the Coven" data-es="De Nuestras Clientas">From the Coven</p>
+    <h2 class="section-title" data-en="What our customers say" data-es="Lo que dicen nuestras clientas">What our customers say</h2>
   </div>
   <div class="test-grid">
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text">"The forest fox plushie I ordered for my daughter is absolutely magical. She named him Bramble and he hasn't left her side."</p>
+      <p class="test-text" data-en='"The forest fox plushie I ordered for my daughter is absolutely magical. She named him Bramble and he hasn't left her side."' data-es='"El peluche del zorro que pedí para mi hija es absolutamente mágico. Lo llamó Bramble y no se ha separado de él."'>"The forest fox plushie I ordered for my daughter is absolutely magical. She named him Bramble and he hasn't left her side."</p>
       <span class="test-author">— Siobhán M. · Chicago</span>
     </div>
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text">"I asked for a shawl inspired by the Wild Hunt and what arrived was beyond anything I imagined. The craftsmanship is extraordinary."</p>
+      <p class="test-text" data-en='"I asked for a shawl inspired by the Wild Hunt and what arrived was beyond anything I imagined. The craftsmanship is extraordinary."' data-es='"Pedí un chal inspirado en la Cacería Salvaje y lo que llegó superó todo lo que imaginé. La artesanía es extraordinaria."'>"I asked for a shawl inspired by the Wild Hunt and what arrived was beyond anything I imagined. The craftsmanship is extraordinary."</p>
       <span class="test-author">— Rowan T. · Madison</span>
     </div>
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text">"Gifted the mushroom set to my sister for Samhain. She cried. I'm ordering three more as holiday gifts. Just stunning."</p>
+      <p class="test-text" data-en='"Gifted the mushroom set to my sister for Samhain. She cried. I'm ordering three more as holiday gifts. Just stunning."' data-es='"Le regalé el set de hongos a mi hermana. Lloró de emoción. Ya estoy pidiendo tres más para los días festivos. Simplemente hermoso."'>"Gifted the mushroom set to my sister for Samhain. She cried. I'm ordering three more as holiday gifts. Just stunning."</p>
       <span class="test-author">— Elena R. · Milwaukee</span>
     </div>
   </div>
@@ -634,12 +655,12 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <!-- NEWSLETTER -->
 <section class="newsletter">
   <div class="reveal" style="position:relative;z-index:2;">
-    <p class="section-label">Join the Circle</p>
-    <h2 class="section-title">New drops, patterns &amp;<br><em>forest dispatches</em></h2>
-    <p class="newsletter-sub">Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox.</p>
+    <p class="section-label" data-en="Join the Circle" data-es="Únete al Círculo">Join the Circle</p>
+    <h2 class="section-title" data-en="New drops, patterns &amp;<br><em>forest dispatches</em>" data-es="Novedades, patrones &amp;<br><em>mensajes del bosque</em>">New drops, patterns &amp;<br><em>forest dispatches</em></h2>
+    <p class="newsletter-sub" data-en="Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox." data-es="Lanzamientos de temporada, magia entre bastidores y descuentos exclusivos — directo a tu correo.">Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox.</p>
     <div class="nl-form">
-      <input type="email" placeholder="your@email.com"/>
-      <button>Subscribe ✦</button>
+      <input type="email" data-placeholder-en="your@email.com" data-placeholder-es="tu@correo.com" placeholder="your@email.com"/>
+      <button data-en="Subscribe ✦" data-es="Suscribirse ✦">Subscribe ✦</button>
     </div>
   </div>
 </section>
@@ -649,35 +670,35 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
   <div class="footer-grid">
     <div>
       <div class="footer-logo">Avyda Creations</div>
-      <p class="footer-tagline">Handcrafted crochet rooted in Celtic lore<br>and the wild magic of the fae.<br>Made with love in Madison, WI.</p>
+      <p class="footer-tagline" data-en="Handcrafted crochet rooted in Celtic lore<br>and the wild magic of the fae.<br>Made with love in Madison, WI." data-es="Crochet artesanal arraigado en la tradición celta<br>y la magia salvaje de las hadas.<br>Hecho con amor en Madison, WI.">Handcrafted crochet rooted in Celtic lore<br>and the wild magic of the fae.<br>Made with love in Madison, WI.</p>
     </div>
     <div class="footer-col">
-      <h4>Shop</h4>
+      <h4 data-en="Shop" data-es="Tienda">Shop</h4>
       <ul>
-        <li><a href="#">Wearables</a></li>
-        <li><a href="#">Amigurumi</a></li>
-        <li><a href="#">Home Décor</a></li>
-        <li><a href="#">Patterns</a></li>
-        <li><a href="#">Gift Bundles</a></li>
+        <li><a href="#" data-en="Wearables" data-es="Ropa">Wearables</a></li>
+        <li><a href="#" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</a></li>
+        <li><a href="#" data-en="Home Décor" data-es="Decoración">Home Décor</a></li>
+        <li><a href="#" data-en="Patterns" data-es="Patrones">Patterns</a></li>
+        <li><a href="#" data-en="Gift Bundles" data-es="Regalos">Gift Bundles</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Craft</h4>
+      <h4 data-en="Craft" data-es="Artesanía">Craft</h4>
       <ul>
-        <li><a href="#">Custom Orders</a></li>
-        <li><a href="#">Care Instructions</a></li>
-        <li><a href="#">Shipping Info</a></li>
-        <li><a href="#">Returns</a></li>
+        <li><a href="#" data-en="Custom Orders" data-es="Pedidos">Custom Orders</a></li>
+        <li><a href="#" data-en="Care Instructions" data-es="Instrucciones de Cuidado">Care Instructions</a></li>
+        <li><a href="#" data-en="Shipping Info" data-es="Información de Envío">Shipping Info</a></li>
+        <li><a href="#" data-en="Returns" data-es="Devoluciones">Returns</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Connect</h4>
+      <h4 data-en="Connect" data-es="Conecta">Connect</h4>
       <ul>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">Pinterest</a></li>
         <li><a href="#">TikTok</a></li>
-        <li><a href="#">Etsy Shop</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#" data-en="Etsy Shop" data-es="Tienda Etsy">Etsy Shop</a></li>
+        <li><a href="#" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -688,11 +709,13 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 </footer>
 
 <script>
+/* ── SCROLL SHADOW ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.style.boxShadow = window.scrollY > 30 ? '0 4px 30px rgba(212,160,200,0.2)' : 'none';
 });
 
+/* ── REVEAL ON SCROLL ── */
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
@@ -703,6 +726,43 @@ const obs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 reveals.forEach(el => obs.observe(el));
+
+/* ── LANGUAGE SWITCHER ── */
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+
+  // Update toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+
+  // Update html lang attribute
+  document.documentElement.lang = lang;
+
+  // Update all elements with data-en / data-es
+  document.querySelectorAll('[data-en][data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text !== null) el.innerHTML = text;
+  });
+
+  // Update label text (labels use data-en/data-es on themselves)
+  document.querySelectorAll('label[data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+
+  // Update placeholder attributes
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    const attr = 'data-placeholder-' + lang;
+    if (el.hasAttribute(attr)) el.placeholder = el.getAttribute(attr);
+  });
+
+  // Update select options
+  document.querySelectorAll('select option[data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+}
 </script>
 </body>
 </html>
