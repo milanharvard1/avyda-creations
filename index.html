@@ -3,226 +3,255 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Avyda Creations — Fae-Inspired Crochet</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<title>Avyda Creations — Cozy Crochet & Frog Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --forest:   #fdf4ff;
-  --moss:     #f0e6ff;
-  --fern:     #e5d4ff;
-  --sage:     #b89dd4;
-  --gold:     #d4a0c8;
-  --gold-lt:  #f0c0e0;
-  --cream:    #fff0f8;
-  --parchment:#3d2052;
-  --bark:     #c4a0d4;
-  --mist:     rgba(212,160,200,0.12);
+  --bg:       #fde8f5;
+  --bg2:      #f5d8f0;
+  --panel:    #f8e4ff;
+  --panel2:   #eedcff;
+  --accent:   #c970b0;
+  --accent2:  #9b5fc0;
+  --teal:     #4abcb0;
+  --rose:     #e8609a;
+  --text:     #2d1442;
+  --text-mid: rgba(45,20,66,0.65);
+  --text-lt:  rgba(45,20,66,0.45);
+  --border:   rgba(201,112,176,0.25);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 
 body {
-  background: var(--forest);
-  color: var(--parchment);
+  background: linear-gradient(160deg, #fde8f5 0%, #f5d8f0 40%, #efd8ff 100%);
+  min-height:100vh;
+  color: var(--text);
   font-family: 'Lato', sans-serif;
   overflow-x: hidden;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23d4a0c8' opacity='0.8'/%3E%3C/svg%3E") 10 10, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23c970b0' opacity='0.8'/%3E%3C/svg%3E") 10 10, auto;
 }
 
 /* ── GRAIN OVERLAY ── */
 body::before {
   content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:999;opacity:0.2;
+  pointer-events:none;z-index:999;opacity:0.15;
 }
 
 /* ── NAV ── */
 nav {
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:1.2rem 4rem;
-  background:rgba(253,244,255,0.92);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(212,160,200,0.25);
+  padding:0.9rem 3rem;
+  background:rgba(253,232,245,0.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
   transition:all 0.3s;
 }
-.nav-logo {
-  font-family:'Cinzel',serif;font-size:1.1rem;
-  color:var(--gold);letter-spacing:0.12em;
+.nav-brand{display:flex;align-items:center;gap:0.85rem;text-decoration:none;}
+.nav-logo-img{
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#a8e6a0,#6ec876);
+  border:2px solid rgba(201,112,176,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;overflow:hidden;flex-shrink:0;
+  box-shadow:0 2px 10px rgba(201,112,176,0.2);
 }
-.nav-logo span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.75rem;display:block;color:var(--sage);letter-spacing:0.2em;text-transform:uppercase;margin-top:-2px;}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(61,32,82,0.55);text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-right{display:flex;align-items:center;gap:1rem;}
-.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.55rem 1.5rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;cursor:pointer;transition:all 0.2s;}
-.nav-cta:hover{background:var(--gold);color:#fff;}
+.nav-logo-text{display:flex;flex-direction:column;}
+.nav-logo-name{font-family:'Cinzel',serif;font-size:1rem;color:var(--accent);letter-spacing:0.08em;line-height:1.2;}
+.nav-logo-sub{font-family:'Lato',sans-serif;font-size:0.68rem;color:var(--text-mid);letter-spacing:0.05em;}
 
-/* ── LANGUAGE TOGGLE ── */
-.lang-toggle{
-  display:flex;align-items:center;gap:0;
-  border:1px solid rgba(212,160,200,0.4);
-  border-radius:2px;overflow:hidden;
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;font-weight:600;}
+.nav-links a:hover{color:var(--accent);}
+
+.nav-right{display:flex;align-items:center;gap:0.9rem;}
+.lang-toggle{display:flex;align-items:center;border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.lang-btn{background:transparent;border:none;color:var(--text-mid);padding:0.3rem 0.65rem;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;}
+.lang-btn.active{background:var(--accent);color:#fff;border-radius:20px;}
+.lang-btn:not(.active):hover{background:rgba(201,112,176,0.12);}
+.btn-touch{
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  color:#fff;border:none;cursor:pointer;
+  padding:0.6rem 1.4rem;border-radius:30px;
+  font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.05em;display:flex;align-items:center;gap:0.4rem;
+  transition:all 0.2s;box-shadow:0 3px 12px rgba(155,95,192,0.35);
 }
-.lang-btn{
-  background:transparent;border:none;color:rgba(61,32,82,0.5);
-  padding:0.35rem 0.7rem;font-family:'Cinzel',serif;font-size:0.6rem;
-  letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;
-}
-.lang-btn.active{background:var(--gold);color:#fff;}
-.lang-btn:not(.active):hover{background:rgba(212,160,200,0.15);}
+.btn-touch:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(155,95,192,0.45);}
 
 /* ── HERO ── */
 .hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:7rem 3rem 4rem;position:relative;overflow:hidden;gap:2rem;
 }
-.hero-bg {
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,160,200,0.25) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(180,157,212,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(200,180,240,0.18) 0%, transparent 60%);
+/* sparkle decorations */
+.sparkle{
+  position:absolute;pointer-events:none;font-size:1.4rem;
+  animation:twinkle 3s ease-in-out infinite;
 }
-.hero-rune {
-  position:absolute;font-size:22rem;color:rgba(212,160,200,0.09);
-  font-family:'Cormorant Garamond',serif;line-height:1;
-  top:50%;left:50%;transform:translate(-50%,-52%);
-  animation:rotateSlow 60s linear infinite;
-  pointer-events:none;
-}
-.hero-content{position:relative;z-index:2;max-width:700px;}
-.hero-eyebrow{
-  font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--sage);margin-bottom:2rem;
-  opacity:0;animation:fadeUp 1s 0.3s forwards;
-}
-.hero-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(3.5rem,8vw,6.5rem);font-weight:300;line-height:1.0;
-  color:var(--parchment);margin-bottom:0.3rem;
-  opacity:0;animation:fadeUp 1s 0.5s forwards;
-}
-.hero-title em{color:var(--gold);font-style:italic;}
-.hero-title .line2{color:var(--sage);}
-.hero-divider{
-  display:flex;align-items:center;gap:1rem;justify-content:center;
-  margin:1.5rem 0;
-  opacity:0;animation:fadeUp 1s 0.7s forwards;
-}
-.hero-divider::before,.hero-divider::after{
-  content:'';flex:1;height:1px;max-width:100px;
-  background:linear-gradient(to right,transparent,rgba(212,160,200,0.5));
-}
-.hero-divider::after{background:linear-gradient(to left,transparent,rgba(212,160,200,0.5));}
-.hero-divider span{color:var(--gold);font-size:0.75rem;letter-spacing:0.3em;}
-.hero-sub{
-  font-size:1rem;line-height:1.8;color:rgba(61,32,82,0.6);
-  max-width:480px;margin:0 auto 2.5rem;
-  opacity:0;animation:fadeUp 1s 0.9s forwards;
-}
-.hero-actions{
-  display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;
-  opacity:0;animation:fadeUp 1s 1.1s forwards;
-}
-.btn-gold{
-  background:var(--gold);color:#fff;
-  padding:0.85rem 2.5rem;border:none;cursor:pointer;
-  font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;
-  text-transform:uppercase;text-decoration:none;display:inline-block;
-  transition:all 0.2s;
-}
-.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);color:var(--parchment);}
-.btn-outline{
-  background:transparent;border:1px solid rgba(212,160,200,0.5);color:var(--gold);
-  padding:0.85rem 2.5rem;cursor:pointer;
-  font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;
-  text-transform:uppercase;text-decoration:none;display:inline-block;
-  transition:all 0.2s;
-}
-.btn-outline:hover{border-color:var(--gold);background:rgba(212,160,200,0.12);}
+.sp1{top:12%;left:5%;animation-delay:0s;font-size:1rem;}
+.sp2{top:20%;left:55%;animation-delay:0.8s;}
+.sp3{top:8%;right:10%;animation-delay:1.5s;font-size:1rem;}
+.sp4{top:40%;left:48%;animation-delay:0.3s;font-size:0.9rem;}
+.sp5{bottom:30%;left:10%;animation-delay:1.2s;}
+.sp6{bottom:20%;right:15%;animation-delay:0.6s;font-size:1rem;}
+.sp7{top:65%;left:40%;animation-delay:2s;font-size:0.8rem;}
+.sp8{top:30%;right:28%;animation-delay:1.8s;font-size:0.9rem;}
+.floater{position:absolute;opacity:0.4;animation:floatRandom 7s ease-in-out infinite;pointer-events:none;}
+.f1{top:18%;left:50%;font-size:1.8rem;animation-delay:0s;}
+.f2{top:55%;right:5%;font-size:1.4rem;animation-delay:2.5s;}
+.f3{bottom:25%;left:46%;font-size:1.6rem;animation-delay:1s;}
 
-/* floating yarn balls */
-.floater{
-  position:absolute;font-size:2rem;opacity:0.3;
-  animation:floatRandom 8s ease-in-out infinite;
-  pointer-events:none;
+.hero-left{position:relative;z-index:2;}
+
+/* queer-owned badge */
+.qo-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:#fff;border-radius:30px;
+  padding:0.45rem 1rem;margin-bottom:1.8rem;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--text);
+  box-shadow:0 2px 12px rgba(201,112,176,0.15);
+  border:1px solid rgba(201,112,176,0.15);
 }
-.f1{top:15%;left:8%;animation-delay:0s;}
-.f2{top:25%;right:10%;animation-delay:2s;}
-.f3{bottom:20%;left:15%;animation-delay:4s;}
-.f4{bottom:30%;right:8%;animation-delay:1s;}
+.qo-badge .rainbow{font-size:1rem;}
+
+/* hero headline */
+.hero-title{
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:clamp(2.6rem,5vw,4rem);line-height:1.15;
+  margin-bottom:1.4rem;
+}
+.ht-dark{color:var(--text);}
+.ht-pink{color:var(--rose);}
+.ht-purple{color:var(--accent2);}
+.ht-script{
+  font-family:'Pacifico',cursive;font-weight:400;
+  color:var(--teal);font-size:clamp(2.2rem,4.5vw,3.5rem);
+  display:block;margin-top:0.1rem;
+}
+
+.hero-sub{
+  font-size:1rem;line-height:1.75;color:var(--text-mid);
+  max-width:480px;margin-bottom:2rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--rose),var(--accent));
+  color:#fff;padding:0.85rem 2rem;border:none;cursor:pointer;
+  border-radius:30px;font-family:'Lato',sans-serif;font-size:0.8rem;
+  font-weight:700;letter-spacing:0.05em;text-decoration:none;
+  display:inline-block;transition:all 0.2s;
+  box-shadow:0 4px 14px rgba(232,96,154,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(232,96,154,0.45);}
+.btn-secondary{
+  background:transparent;color:var(--accent2);
+  padding:0.85rem 2rem;border:2px solid rgba(155,95,192,0.35);
+  border-radius:30px;font-family:'Lato',sans-serif;font-size:0.8rem;
+  font-weight:700;letter-spacing:0.05em;text-decoration:none;
+  display:inline-block;transition:all 0.2s;
+}
+.btn-secondary:hover{border-color:var(--accent2);background:rgba(155,95,192,0.08);}
+
+/* hero right — product showcase */
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  min-height:420px;
+}
+.hero-showcase{position:relative;width:340px;height:380px;}
+.showcase-phone{
+  position:absolute;width:200px;
+  background:#1a1a1a;border-radius:22px;
+  padding:8px;box-shadow:0 20px 50px rgba(45,20,66,0.3);
+}
+.showcase-phone.front{top:40px;left:0;z-index:3;transform:rotate(-4deg);}
+.showcase-phone.back{top:0;right:0;z-index:2;transform:rotate(3deg);}
+.phone-screen{
+  background:linear-gradient(135deg,#2d2d2d,#1a1a1a);
+  border-radius:16px;overflow:hidden;
+  aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;
+  font-size:4rem;
+}
+.showcase-sticker{
+  position:absolute;bottom:10px;right:10px;z-index:4;
+  width:130px;height:130px;border-radius:50%;
+  background:linear-gradient(135deg,#a8e6a0,#6ec876);
+  border:3px solid #fff;
+  box-shadow:0 8px 25px rgba(45,20,66,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  animation:floatPlant 4s ease-in-out infinite;
+}
 
 /* ── MARQUEE ── */
-.marquee-bar{background:var(--fern);padding:0.9rem 0;overflow:hidden;border-top:1px solid rgba(212,160,200,0.25);border-bottom:1px solid rgba(212,160,200,0.25);}
-.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 25s linear infinite;}
-.marquee-item{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--parchment);padding:0 2.5rem;}
-.marquee-sep{color:var(--gold);opacity:0.8;}
+.marquee-bar{
+  background:linear-gradient(90deg,var(--accent2),var(--accent),var(--rose),var(--accent),var(--accent2));
+  padding:0.75rem 0;overflow:hidden;
+}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 22s linear infinite;}
+.marquee-item{font-family:'Lato',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#fff;padding:0 2rem;opacity:0.9;}
+.marquee-sep{color:rgba(255,255,255,0.5);}
 
 /* ── SECTION COMMONS ── */
-.section-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;color:var(--parchment);}
-.section-title em{color:var(--gold);font-style:italic;}
+.section-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+.section-title{font-family:'Lato',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;color:var(--text);}
+.section-title em{color:var(--accent);font-style:italic;font-family:'Pacifico',cursive;font-weight:400;font-size:0.9em;}
 
 /* ── ABOUT ── */
-.about{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;}
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
 .about-visual{
-  background:var(--moss);
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
   position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   min-height:400px;
 }
 .about-visual::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(212,160,200,0.2) 0%,transparent 70%);
+  background:radial-gradient(ellipse at center,rgba(201,112,176,0.18) 0%,transparent 70%);
 }
-.about-knot{
-  font-size:9rem;opacity:0.4;
-  animation:floatPlant 5s ease-in-out infinite;
-  position:relative;z-index:1;
-}
+.about-knot{font-size:9rem;opacity:0.5;animation:floatPlant 5s ease-in-out infinite;position:relative;z-index:1;}
 .about-tag{
   position:absolute;top:2rem;left:2rem;
-  background:var(--gold);color:#fff;
-  padding:0.35rem 1rem;font-family:'Cinzel',serif;
-  font-size:0.6rem;letter-spacing:0.15em;
+  background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
+  padding:0.35rem 1rem;border-radius:20px;font-family:'Lato',sans-serif;
+  font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
 }
-.about-corner{
-  position:absolute;bottom:2rem;right:2rem;
-  width:60px;height:60px;
-  border-right:2px solid rgba(212,160,200,0.4);
-  border-bottom:2px solid rgba(212,160,200,0.4);
-}
+.about-corner{position:absolute;bottom:2rem;right:2rem;width:60px;height:60px;border-right:2px solid var(--border);border-bottom:2px solid var(--border);}
 .about-content{
   padding:5rem 4rem;display:flex;flex-direction:column;
-  justify-content:center;background:var(--forest);
-  border-left:1px solid rgba(212,160,200,0.2);
+  justify-content:center;background:rgba(253,232,245,0.6);
+  border-left:1px solid var(--border);
 }
-.about-body{font-size:1rem;line-height:1.85;color:rgba(61,32,82,0.65);margin:1.5rem 0 2rem;}
+.about-body{font-size:1rem;line-height:1.85;color:var(--text-mid);margin:1.5rem 0 2rem;}
 .traits{display:flex;flex-direction:column;gap:0.8rem;}
-.trait{display:flex;align-items:center;gap:0.8rem;font-size:0.88rem;color:rgba(61,32,82,0.8);}
-.trait::before{content:'✦';color:var(--gold);font-size:0.6rem;flex-shrink:0;}
+.trait{display:flex;align-items:center;gap:0.8rem;font-size:0.88rem;color:rgba(45,20,66,0.8);}
+.trait::before{content:'✦';color:var(--accent);font-size:0.6rem;flex-shrink:0;}
 
 /* ── PRODUCTS ── */
-.products{padding:6rem 4rem;background:var(--forest);}
+.products{padding:6rem 3rem;background:transparent;}
 .products-header{text-align:center;margin-bottom:4rem;}
 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .product-card{
-  background:var(--moss);
-  border:1px solid rgba(212,160,200,0.2);
+  background:rgba(255,255,255,0.7);
+  border:1px solid var(--border);border-radius:16px;
   overflow:hidden;
   transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;
   cursor:pointer;position:relative;
+  backdrop-filter:blur(6px);
 }
 .product-card:hover{
   transform:translateY(-8px);
-  border-color:rgba(212,160,200,0.6);
-  box-shadow:0 20px 50px rgba(212,160,200,0.2),0 0 30px rgba(212,160,200,0.1);
+  border-color:rgba(201,112,176,0.5);
+  box-shadow:0 20px 50px rgba(201,112,176,0.2);
 }
 .product-img{
   height:200px;display:flex;align-items:center;justify-content:center;
-  font-size:4.5rem;position:relative;overflow:hidden;
+  font-size:4.5rem;position:relative;overflow:hidden;border-radius:14px 14px 0 0;
 }
 .pi1{background:linear-gradient(135deg,#f0d8ff,#e8c8f8);}
 .pi2{background:linear-gradient(135deg,#ffd8ee,#ffc0e0);}
@@ -230,159 +259,154 @@ nav {
 .pi4{background:linear-gradient(135deg,#d8ffd8,#c8efc8);}
 .pi5{background:linear-gradient(135deg,#ffd8d8,#f8c8c8);}
 .pi6{background:linear-gradient(135deg,#ffd8f8,#f8c8f0);}
-.product-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(240,230,255,0.4),transparent);
-}
+.product-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(253,232,245,0.3),transparent);}
 .new-badge{
   position:absolute;top:1rem;right:1rem;z-index:2;
-  background:var(--gold);color:#fff;
-  padding:0.2rem 0.7rem;font-family:'Cinzel',serif;
-  font-size:0.55rem;letter-spacing:0.15em;
+  background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
+  padding:0.2rem 0.7rem;border-radius:12px;font-family:'Lato',sans-serif;
+  font-size:0.55rem;font-weight:700;letter-spacing:0.1em;
 }
-.product-info{padding:1.5rem;}
-.product-cat{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:0.5rem;}
-.product-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--parchment);margin-bottom:0.5rem;font-weight:400;}
-.product-desc{font-size:0.82rem;color:rgba(61,32,82,0.55);line-height:1.6;margin-bottom:1.2rem;}
+.product-info{padding:1.4rem;}
+.product-cat{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;font-weight:700;}
+.product-name{font-family:'Lato',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+.product-desc{font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:1.2rem;}
 .product-foot{display:flex;align-items:center;justify-content:space-between;}
-.product-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);}
+.product-price{font-family:'Lato',sans-serif;font-size:1.2rem;font-weight:700;color:var(--accent);}
 .product-add{
-  font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.12em;
-  background:none;border:1px solid rgba(212,160,200,0.4);color:var(--gold);
-  padding:0.4rem 1rem;cursor:pointer;transition:all 0.2s;
+  font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;
+  background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
+  border:none;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;transition:all 0.2s;
 }
-.product-add:hover{background:var(--gold);color:#fff;}
+.product-add:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(232,96,154,0.35);}
 
 /* ── SERVICES ── */
-.services{background:var(--moss);padding:6rem 4rem;border-top:1px solid rgba(212,160,200,0.15);}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:3rem;background:rgba(212,160,200,0.15);}
+.services{background:rgba(255,255,255,0.45);padding:6rem 3rem;border-top:1px solid var(--border);backdrop-filter:blur(6px);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
 .service-item{
-  padding:3rem 2rem;background:var(--moss);
-  transition:background 0.3s;cursor:pointer;
+  padding:2.5rem 2rem;background:rgba(255,255,255,0.7);border:1px solid var(--border);
+  border-radius:16px;transition:all 0.3s;cursor:pointer;
 }
-.service-item:hover{background:rgba(212,160,200,0.12);}
+.service-item:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(201,112,176,0.18);}
 .service-icon{font-size:2rem;margin-bottom:1.2rem;display:block;}
-.service-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--parchment);margin-bottom:0.7rem;}
-.service-desc{font-size:0.85rem;color:rgba(61,32,82,0.55);line-height:1.7;margin-bottom:1.2rem;}
-.service-link{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,200,0.4);padding-bottom:2px;}
+.service-name{font-family:'Lato',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.7rem;}
+.service-desc{font-size:0.85rem;color:var(--text-mid);line-height:1.7;margin-bottom:1.2rem;}
+.service-link{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(201,112,176,0.3);padding-bottom:2px;}
 
 /* ── BOOK ── */
-.book{display:grid;grid-template-columns:1fr 1fr;min-height:75vh;}
+.book{display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
 .book-left{
-  background:var(--fern);padding:5rem 4rem;
-  display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;
   position:relative;overflow:hidden;
 }
 .book-left::before{
-  content:'✦';font-size:20rem;position:absolute;
+  content:'🌸';font-size:18rem;position:absolute;
   right:-3rem;top:50%;transform:translateY(-50%);
-  color:rgba(212,160,200,0.12);font-family:'Cormorant Garamond',serif;
-  pointer-events:none;
+  opacity:0.06;pointer-events:none;
 }
-.book-body{font-size:1rem;line-height:1.8;color:rgba(61,32,82,0.65);margin:1.2rem 0 2rem;}
+.book-body{font-size:1rem;line-height:1.8;color:var(--text-mid);margin:1.2rem 0 2rem;}
 .perks{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2.5rem;}
-.perks li{font-size:0.88rem;color:rgba(61,32,82,0.8);display:flex;align-items:center;gap:0.7rem;}
-.perks li::before{content:'✦';color:var(--gold);font-size:0.55rem;flex-shrink:0;}
+.perks li{font-size:0.88rem;color:rgba(45,20,66,0.8);display:flex;align-items:center;gap:0.7rem;}
+.perks li::before{content:'✦';color:var(--accent);font-size:0.55rem;flex-shrink:0;}
 .book-right{
-  background:var(--forest);padding:5rem 4rem;
+  background:rgba(255,255,255,0.6);padding:5rem 4rem;
   display:flex;flex-direction:column;justify-content:center;
-  border-left:1px solid rgba(212,160,200,0.2);
+  border-left:1px solid var(--border);backdrop-filter:blur(6px);
 }
-.form-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--parchment);margin-bottom:2rem;font-weight:300;}
-.form-title em{color:var(--gold);font-style:italic;}
+.form-title{font-family:'Lato',sans-serif;font-size:1.7rem;font-weight:700;color:var(--text);margin-bottom:2rem;}
+.form-title em{color:var(--accent);font-style:italic;font-family:'Pacifico',cursive;font-weight:400;}
 .form{display:flex;flex-direction:column;gap:1.2rem;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.field label{display:block;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(212,160,200,0.9);margin-bottom:0.45rem;}
+.field label{display:block;font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.45rem;}
 .field input,.field select,.field textarea{
   width:100%;padding:0.75rem 1rem;
-  background:rgba(255,255,255,0.7);
-  border:1px solid rgba(212,160,200,0.3);
-  color:var(--parchment);font-family:'Lato',sans-serif;font-size:0.88rem;
+  background:rgba(255,255,255,0.8);
+  border:1.5px solid var(--border);border-radius:10px;
+  color:var(--text);font-family:'Lato',sans-serif;font-size:0.88rem;
   outline:none;transition:border-color 0.2s;
-  -webkit-appearance:none;
 }
-.field input:focus,.field select,.field textarea:focus{border-color:rgba(212,160,200,0.7);}
-.field select option{background:var(--forest);}
+.field input:focus,.field textarea:focus{border-color:var(--accent);}
+.field select option{background:#fff;}
 .field textarea{resize:none;}
 
 /* ── TESTIMONIALS ── */
-.testimonials{padding:6rem 4rem;background:var(--forest);border-top:1px solid rgba(212,160,200,0.15);}
+.testimonials{padding:6rem 3rem;background:transparent;border-top:1px solid var(--border);}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
 .test-card{
-  padding:2rem;
-  background:var(--moss);
-  border:1px solid rgba(212,160,200,0.2);
-  border-top:3px solid var(--gold);
-  transition:transform 0.3s;
+  padding:2rem;background:rgba(255,255,255,0.7);
+  border:1px solid var(--border);border-radius:16px;
+  border-top:3px solid var(--accent);
+  transition:transform 0.3s;backdrop-filter:blur(6px);
 }
 .test-card:hover{transform:translateY(-4px);}
-.test-stars{color:var(--gold);font-size:0.75rem;letter-spacing:3px;margin-bottom:1rem;}
-.test-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:1.7;color:var(--parchment);margin-bottom:1.2rem;}
-.test-author{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--sage);}
+.test-stars{color:var(--rose);font-size:0.85rem;letter-spacing:3px;margin-bottom:1rem;}
+.test-text{font-family:'Lato',sans-serif;font-style:italic;font-size:0.95rem;line-height:1.75;color:var(--text);margin-bottom:1.2rem;}
+.test-author{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:var(--accent);}
 
 /* ── NEWSLETTER ── */
 .newsletter{
-  background:var(--fern);padding:5rem 4rem;text-align:center;
-  border-top:1px solid rgba(212,160,200,0.25);
-  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--accent2),var(--accent),var(--rose));
+  padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;
 }
-.newsletter::before{
-  content:'🌸🌷🌺';font-size:6rem;position:absolute;
-  left:3rem;top:50%;transform:translateY(-50%);opacity:0.18;
-}
-.newsletter::after{
-  content:'🌺🌷🌸';font-size:6rem;position:absolute;
-  right:3rem;top:50%;transform:translateY(-50%);opacity:0.18;
-}
-.newsletter .section-title{margin-bottom:0.8rem;}
-.newsletter-sub{font-size:0.95rem;color:rgba(61,32,82,0.55);margin-bottom:2.5rem;}
-.nl-form{display:flex;gap:0;max-width:460px;margin:0 auto;}
+.newsletter::before{content:'🌸🌷🌺';font-size:5rem;position:absolute;left:3rem;top:50%;transform:translateY(-50%);opacity:0.15;}
+.newsletter::after{content:'🌺🌷🌸';font-size:5rem;position:absolute;right:3rem;top:50%;transform:translateY(-50%);opacity:0.15;}
+.newsletter .section-label{color:rgba(255,255,255,0.75);}
+.newsletter .section-title{color:#fff;}
+.newsletter-sub{font-size:0.95rem;color:rgba(255,255,255,0.75);margin-bottom:2.5rem;}
+.nl-form{display:flex;gap:0;max-width:460px;margin:0 auto;border-radius:30px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);}
 .nl-form input{
   flex:1;padding:0.9rem 1.5rem;border:none;
-  background:rgba(255,255,255,0.8);border:1px solid rgba(212,160,200,0.3);
-  border-right:none;color:var(--parchment);
+  background:#fff;color:var(--text);
   font-family:'Lato',sans-serif;font-size:0.88rem;outline:none;
 }
 .nl-form button{
-  background:var(--gold);color:#fff;padding:0.9rem 1.8rem;
-  border:none;cursor:pointer;font-family:'Cinzel',serif;
-  font-size:0.62rem;letter-spacing:0.15em;transition:background 0.2s;
+  background:var(--text);color:#fff;padding:0.9rem 1.8rem;
+  border:none;cursor:pointer;font-family:'Lato',sans-serif;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.08em;transition:background 0.2s;
 }
-.nl-form button:hover{background:var(--gold-lt);color:var(--parchment);}
+.nl-form button:hover{background:#1a0a2e;}
 
 /* ── FOOTER ── */
-footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,160,200,0.2);}
+footer{background:#2d1442;padding:4rem 3rem 2rem;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
-.footer-logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.12em;margin-bottom:0.8rem;}
-.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(61,32,82,0.5);line-height:1.6;}
-.footer-col h4{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,160,200,0.9);margin-bottom:1.2rem;}
+.footer-logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--accent);letter-spacing:0.12em;margin-bottom:0.8rem;}
+.footer-tagline{font-family:'Lato',sans-serif;font-style:italic;font-size:0.88rem;color:rgba(255,255,255,0.4);line-height:1.6;}
+.footer-col h4{font-family:'Lato',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,112,176,0.7);margin-bottom:1.2rem;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-.footer-col ul a{font-size:0.85rem;color:rgba(61,32,82,0.55);text-decoration:none;transition:color 0.2s;}
-.footer-col ul a:hover{color:var(--gold);}
-.footer-bottom{border-top:1px solid rgba(212,160,200,0.2);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:rgba(61,32,82,0.4);}
+.footer-col ul a{font-size:0.85rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--accent);}
+.footer-bottom{border-top:1px solid rgba(201,112,176,0.15);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.25);}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 @keyframes floatPlant{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-14px) rotate(3deg);}}
 @keyframes floatRandom{0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-@keyframes rotateSlow{from{transform:translate(-50%,-52%) rotate(0deg);}to{transform:translate(-50%,-52%) rotate(360deg);}}
+@keyframes twinkle{0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.9;transform:scale(1.3);}}
+
+.hero-left > *{opacity:0;animation:fadeUp 0.9s forwards;}
+.qo-badge{animation-delay:0.2s;}
+.hero-title{animation-delay:0.4s;}
+.hero-sub{animation-delay:0.6s;}
+.hero-actions{animation-delay:0.8s;}
 
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s,transform 0.8s;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
-  nav{padding:1rem 1.5rem;}
+  nav{padding:0.8rem 1.2rem;}
   .nav-links{display:none;}
-  .hero{padding:6rem 1.5rem 3rem;}
+  .hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;text-align:center;}
+  .hero-right{display:none;}
+  .qo-badge{margin:0 auto 1.5rem;}
+  .hero-actions{justify-content:center;}
   .about,.book{grid-template-columns:1fr;}
   .about-content,.book-left,.book-right{padding:3rem 2rem;}
   .products,.services,.testimonials,.newsletter{padding:4rem 1.5rem;}
   .products-grid,.services-grid,.test-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
   footer{padding:3rem 1.5rem 1.5rem;}
-  .floater{display:none;}
   .form-row{grid-template-columns:1fr;}
 }
 </style>
@@ -391,60 +415,91 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo">
-    Avyda Creations
-    <span>✦ Fae-Inspired Crochet ✦</span>
-  </div>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo-img">🐸</div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Avyda Creations</span>
+      <span class="nav-logo-sub">handmade crochet ✦ est. 2024</span>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#shop" data-en="Shop" data-es="Tienda">Shop</a></li>
-    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
     <li><a href="#book" data-en="Custom Orders" data-es="Pedidos">Custom Orders</a></li>
-    <li><a href="#about" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
+    <li><a href="#about" data-en="About Us" data-es="Nosotras">About Us</a></li>
+    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('es')">ES</button>
     </div>
-    <button class="nav-cta" data-en="Order Custom" data-es="Pedir Ahora">Order Custom</button>
+    <button class="btn-touch" data-en="Get in Touch ✉" data-es="Escríbenos ✉">Get in Touch ✉</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-rune">ᚉ</div>
-  <span class="floater f1">🧶</span>
-  <span class="floater f2">🌸</span>
+  <!-- sparkles -->
+  <span class="sparkle sp1">✦</span>
+  <span class="sparkle sp2">✦</span>
+  <span class="sparkle sp3">✦</span>
+  <span class="sparkle sp4">✦</span>
+  <span class="sparkle sp5">✦</span>
+  <span class="sparkle sp6">✦</span>
+  <span class="sparkle sp7">✦</span>
+  <span class="sparkle sp8">✦</span>
+  <span class="floater f1">🌸</span>
+  <span class="floater f2">🌷</span>
   <span class="floater f3">✨</span>
-  <span class="floater f4">🪡</span>
-  <div class="hero-content">
-    <p class="hero-eyebrow" data-en="✦ &nbsp; Handcrafted in Madison, WI &nbsp; ✦ &nbsp; Fae &amp; Irish Spirit &nbsp; ✦" data-es="✦ &nbsp; Hecho a mano en Madison, WI &nbsp; ✦ &nbsp; Espíritu Fae e Irlandés &nbsp; ✦">✦ &nbsp; Handcrafted in Madison, WI &nbsp; ✦ &nbsp; Fae &amp; Irish Spirit &nbsp; ✦</p>
-    <h1 class="hero-title" data-en="Woven from<br><em>Ancient Magic</em>" data-es="Tejido desde<br><em>Magia Antigua</em>">Woven from<br><em>Ancient Magic</em></h1>
-    <div class="hero-divider"><span>✦ ✦ ✦</span></div>
-    <p class="hero-sub" data-en="Each piece is a spell — handcrafted crochet creations rooted in Celtic lore, Irish folklore, and the wild enchantment of the natural world." data-es="Cada pieza es un hechizo — creaciones de crochet hechas a mano, arraigadas en la tradición celta, el folclore irlandés y el encanto salvaje del mundo natural.">Each piece is a spell — handcrafted crochet creations rooted in Celtic lore, Irish folklore, and the wild enchantment of the natural world.</p>
+
+  <div class="hero-left">
+    <div class="qo-badge">
+      <span class="rainbow">🏳️‍🌈</span>
+      <span data-en="Queer-Owned · Handmade with Heart" data-es="De Dueñas Queer · Hecho con Corazón">Queer-Owned · Handmade with Heart</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="ht-dark" data-en="Cozy crochet," data-es="Crochet acogedor,">Cozy crochet,</span><br>
+      <span class="ht-pink" data-en="fairy magic" data-es="magia de hadas">fairy magic</span>
+      <span class="ht-dark"> &amp; </span><br>
+      <span class="ht-script" data-en="frog energy 🐸" data-es="energía rana 🐸">frog energy 🐸</span>
+    </h1>
+    <p class="hero-sub" data-en="Avyda Creations is a queer-owned handmade crochet shop bringing whimsical, one-of-a-kind pieces to life — from amigurumi to pride blankets, every stitch is made with love. 💜🌸" data-es="Avyda Creations es una tienda de crochet hecho a mano de dueñas queer que da vida a piezas únicas y caprichosas — desde amigurumis hasta cobijas del orgullo, cada punto está hecho con amor. 💜🌸">Avyda Creations is a queer-owned handmade crochet shop bringing whimsical, one-of-a-kind pieces to life — from amigurumi to pride blankets, every stitch is made with love. 💜🌸</p>
     <div class="hero-actions">
-      <a href="#shop" class="btn-gold" data-en="Enter the Shop" data-es="Entrar a la Tienda">Enter the Shop</a>
-      <a href="#book" class="btn-outline" data-en="Request Custom" data-es="Pedir Personalizado">Request Custom</a>
+      <a href="#shop" class="btn-primary" data-en="Enter the Shop 🧶" data-es="Entrar a la Tienda 🧶">Enter the Shop 🧶</a>
+      <a href="#book" class="btn-secondary" data-en="Request Custom" data-es="Pedir Personalizado">Request Custom</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-showcase">
+      <div class="showcase-phone back">
+        <div class="phone-screen">🧶</div>
+      </div>
+      <div class="showcase-phone front">
+        <div class="phone-screen">🌸</div>
+      </div>
+      <div class="showcase-sticker">🐸</div>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee-bar">
-  <div class="marquee-track" id="marquee-track">
+  <div class="marquee-track">
     <span class="marquee-item" data-en="Handmade Crochet" data-es="Crochet Artesanal">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños Inspirados en las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Irish Celtic Motifs" data-es="Motivos Celtas Irlandeses">Irish Celtic Motifs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Queer-Owned" data-es="Dueñas Queer">Queer-Owned</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños de las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Pride Blankets" data-es="Cobijas del Orgullo">Pride Blankets</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Custom Orders Welcome" data-es="Pedidos Personalizados">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Made with Love in Madison" data-es="Hecho con Amor en Madison">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Enchanted Yarn Creations" data-es="Creaciones de Hilo Encantadas">Enchanted Yarn Creations</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Frog Energy 🐸" data-es="Energía Rana 🐸">Frog Energy 🐸</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Handmade Crochet" data-es="Crochet Artesanal">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños Inspirados en las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Irish Celtic Motifs" data-es="Motivos Celtas Irlandeses">Irish Celtic Motifs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Queer-Owned" data-es="Dueñas Queer">Queer-Owned</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños de las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Pride Blankets" data-es="Cobijas del Orgullo">Pride Blankets</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Custom Orders Welcome" data-es="Pedidos Personalizados">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Made with Love in Madison" data-es="Hecho con Amor en Madison">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Enchanted Yarn Creations" data-es="Creaciones de Hilo Encantadas">Enchanted Yarn Creations</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Frog Energy 🐸" data-es="Energía Rana 🐸">Frog Energy 🐸</span><span class="marquee-item marquee-sep">✦</span>
   </div>
 </div>
 
@@ -457,13 +512,13 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
   </div>
   <div class="about-content reveal">
     <p class="section-label" data-en="Our Story" data-es="Nuestra Historia">Our Story</p>
-    <h2 class="section-title" data-en="Where yarn becomes<br><em>enchantment</em>" data-es="Donde el hilo se convierte<br>en <em>encantamiento</em>">Where yarn becomes<br><em>enchantment</em></h2>
-    <p class="about-body" data-en="Avyda Creations was born from a love of Celtic mythology and the meditative art of crochet. Every stitch carries intention — every piece is a small act of magic, made by hand, made with heart." data-es="Avyda Creations nació del amor por la mitología celta y el arte meditativo del crochet. Cada punto lleva una intención — cada pieza es un pequeño acto de magia, hecho a mano, hecho con corazón.">Avyda Creations was born from a love of Celtic mythology and the meditative art of crochet. Every stitch carries intention — every piece is a small act of magic, made by hand, made with heart.</p>
+    <h2 class="section-title" data-en="Where yarn becomes <em>enchantment</em>" data-es="Donde el hilo se vuelve <em>encantamiento</em>">Where yarn becomes <em>enchantment</em></h2>
+    <p class="about-body" data-en="Avyda Creations was born from a love of Celtic mythology, frog energy, and the meditative art of crochet. We're a queer-owned shop in Madison, WI — every stitch carries intention, every piece is a small act of magic, made by hand, made with heart." data-es="Avyda Creations nació del amor por la mitología celta, la energía rana y el arte meditativo del crochet. Somos una tienda de dueñas queer en Madison, WI — cada punto lleva una intención, cada pieza es un pequeño acto de magia, hecho a mano, hecho con corazón.">Avyda Creations was born from a love of Celtic mythology, frog energy, and the meditative art of crochet. We're a queer-owned shop in Madison, WI — every stitch carries intention, every piece is a small act of magic, made by hand, made with heart.</p>
     <div class="traits">
       <div class="trait" data-en="100% handmade — no machines, ever" data-es="100% hecho a mano — sin máquinas, jamás">100% handmade — no machines, ever</div>
-      <div class="trait" data-en="Inspired by Irish folklore &amp; fae mythology" data-es="Inspirado en el folclore irlandés y la mitología de las hadas">Inspired by Irish folklore &amp; fae mythology</div>
+      <div class="trait" data-en="Queer-owned & proudly inclusive" data-es="De dueñas queer y orgullosamente inclusivas">Queer-owned &amp; proudly inclusive</div>
+      <div class="trait" data-en="Amigurumi, pride blankets & fae designs" data-es="Amigurumis, cobijas del orgullo y diseños de hadas">Amigurumi, pride blankets &amp; fae designs</div>
       <div class="trait" data-en="Custom orders crafted just for you" data-es="Pedidos personalizados creados solo para ti">Custom orders crafted just for you</div>
-      <div class="trait" data-en="Sustainably sourced, natural-feel yarns" data-es="Hilos de origen sostenible y tacto natural">Sustainably sourced, natural-feel yarns</div>
     </div>
   </div>
 </section>
@@ -489,13 +544,12 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
     </div>
     <div class="product-card reveal">
       <div class="product-img pi2">
-        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>
-        🧢
+        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>🧢
       </div>
       <div class="product-info">
         <p class="product-cat" data-en="Accessories" data-es="Accesorios">Accessories</p>
         <h3 class="product-name" data-en="Celtic Knot Beanie" data-es="Gorro de Nudo Celta">Celtic Knot Beanie</h3>
-        <p class="product-desc" data-en="Hand-stitched Celtic knotwork pattern in deep forest tones. A crown for the wild-hearted." data-es="Patrón de nudo celta cosido a mano en tonos de bosque profundo. Una corona para los de corazón salvaje.">Hand-stitched Celtic knotwork pattern in deep forest tones. A crown for the wild-hearted.</p>
+        <p class="product-desc" data-en="Hand-stitched Celtic knotwork in deep forest tones. A crown for the wild-hearted." data-es="Nudo celta cosido a mano en tonos de bosque. Una corona para los de corazón salvaje.">Hand-stitched Celtic knotwork in deep forest tones. A crown for the wild-hearted.</p>
         <div class="product-foot">
           <span class="product-price">$42</span>
           <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
@@ -503,33 +557,32 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img pi3">🌙</div>
+      <div class="product-img pi3">🏳️‍🌈</div>
       <div class="product-info">
-        <p class="product-cat" data-en="Home &amp; Décor" data-es="Hogar y Decoración">Home &amp; Décor</p>
-        <h3 class="product-name" data-en="Moon &amp; Thorn Wall Piece" data-es="Colgante Luna y Espino">Moon &amp; Thorn Wall Piece</h3>
-        <p class="product-desc" data-en="A woven wall hanging with crescent moon and briar motifs. Dark, dreamy, otherworldly." data-es="Colgante tejido con motivos de luna creciente y zarza. Oscuro, soñador, de otro mundo.">A woven wall hanging with crescent moon and briar motifs. Dark, dreamy, otherworldly.</p>
+        <p class="product-cat" data-en="Pride Collection" data-es="Colección Orgullo">Pride Collection</p>
+        <h3 class="product-name" data-en="Pride Blanket" data-es="Cobija del Orgullo">Pride Blanket</h3>
+        <p class="product-desc" data-en="Handmade blanket in your flag's colors. Bi, trans, lesbian, ace & more — made with love." data-es="Cobija hecha a mano en los colores de tu bandera. Bi, trans, lésbica, ace y más — hecha con amor.">Handmade blanket in your flag's colors. Bi, trans, lesbian, ace &amp; more — made with love.</p>
         <div class="product-foot">
-          <span class="product-price">$85</span>
+          <span class="product-price">$95</span>
           <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img pi4">🌿</div>
+      <div class="product-img pi4">🐸</div>
       <div class="product-info">
         <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
-        <h3 class="product-name" data-en="Fae Woodland Fox" data-es="Zorro del Bosque Feérico">Fae Woodland Fox</h3>
-        <p class="product-desc" data-en="A soft crocheted fox with tiny mushroom and acorn details. A guardian of the in-between." data-es="Un suave zorro tejido a crochet con diminutos detalles de hongos y bellotas. Un guardián del entre-mundos.">A soft crocheted fox with tiny mushroom and acorn details. A guardian of the in-between.</p>
+        <h3 class="product-name" data-en="Lil' Frog Friend" data-es="Ranita Amiguita">Lil' Frog Friend</h3>
+        <p class="product-desc" data-en="A soft crocheted frog with big eyes and maximum vibes. The mascot of Avyda energy." data-es="Una suave rana de crochet con ojos grandes y vibras máximas. La mascota de la energía Avyda.">A soft crocheted frog with big eyes and maximum vibes. The mascot of Avyda energy.</p>
         <div class="product-foot">
-          <span class="product-price">$55</span>
+          <span class="product-price">$45</span>
           <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi5">
-        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>
-        🍄
+        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>🍄
       </div>
       <div class="product-info">
         <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
@@ -546,7 +599,7 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
       <div class="product-info">
         <p class="product-cat" data-en="Bags &amp; Totes" data-es="Bolsas y Totes">Bags &amp; Totes</p>
         <h3 class="product-name" data-en="Wildflower Market Bag" data-es="Bolsa de Mercado Silvestre">Wildflower Market Bag</h3>
-        <p class="product-desc" data-en="Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy." data-es="Tote de tejido abierto con apliques florales de crochet. Ligera, resistente y llena de energía del prado.">Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy.</p>
+        <p class="product-desc" data-en="Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy." data-es="Tote de tejido abierto con apliques florales. Ligera, resistente y llena de energía del prado.">Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy.</p>
         <div class="product-foot">
           <span class="product-price">$48</span>
           <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
@@ -560,25 +613,25 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <section class="services" id="services">
   <div class="reveal" style="text-align:center;">
     <p class="section-label" data-en="What We Offer" data-es="Lo Que Ofrecemos">What We Offer</p>
-    <h2 class="section-title" data-en="More than crochet —<br>a whole <em>craft</em>" data-es="Más que crochet —<br>todo un <em>arte</em>">More than crochet —<br>a whole <em>craft</em></h2>
+    <h2 class="section-title" data-en="More than crochet — a whole <em>craft</em>" data-es="Más que crochet — todo un <em>arte</em>">More than crochet — a whole <em>craft</em></h2>
   </div>
   <div class="services-grid">
     <div class="service-item reveal">
       <span class="service-icon">🪡</span>
       <h3 class="service-name" data-en="Custom Commissions" data-es="Encargos Personalizados">Custom Commissions</h3>
-      <p class="service-desc" data-en="Have a vision? We'll bring it to life in yarn. From character plushies to heirloom blankets, no idea is too wild." data-es="¿Tienes una visión? La haremos realidad en hilo. Desde peluches de personajes hasta mantas de herencia, ninguna idea es demasiado descabellada.">Have a vision? We'll bring it to life in yarn. From character plushies to heirloom blankets, no idea is too wild.</p>
+      <p class="service-desc" data-en="Have a vision? We'll bring it to life in yarn. Character plushies, pride pieces, heirloom blankets — no idea is too wild." data-es="¿Tienes una visión? La haremos realidad en hilo. Peluches de personajes, piezas del orgullo, mantas de herencia — ninguna idea es demasiado descabellada.">Have a vision? We'll bring it to life in yarn. Character plushies, pride pieces, heirloom blankets — no idea is too wild.</p>
       <a href="#book" class="service-link" data-en="Start a Request →" data-es="Hacer un Pedido →">Start a Request →</a>
     </div>
     <div class="service-item reveal">
       <span class="service-icon">📖</span>
       <h3 class="service-name" data-en="Crochet Patterns" data-es="Patrones de Crochet">Crochet Patterns</h3>
-      <p class="service-desc" data-en="Digital PDF patterns for every skill level, with step-by-step illustrations and fae-inspired designs you won't find anywhere else." data-es="Patrones PDF digitales para todos los niveles, con ilustraciones paso a paso y diseños inspirados en las hadas que no encontrarás en ningún otro lugar.">Digital PDF patterns for every skill level, with step-by-step illustrations and fae-inspired designs you won't find anywhere else.</p>
+      <p class="service-desc" data-en="Digital PDF patterns for every skill level, with step-by-step illustrations and whimsical designs you won't find anywhere else." data-es="Patrones PDF digitales para todos los niveles, con ilustraciones paso a paso y diseños caprichosos únicos.">Digital PDF patterns for every skill level, with step-by-step illustrations and whimsical designs you won't find anywhere else.</p>
       <a href="#shop" class="service-link" data-en="Browse Patterns →" data-es="Ver Patrones →">Browse Patterns →</a>
     </div>
     <div class="service-item reveal">
-      <span class="service-icon">✨</span>
+      <span class="service-icon">🎁</span>
       <h3 class="service-name" data-en="Gift Bundles" data-es="Paquetes de Regalo">Gift Bundles</h3>
-      <p class="service-desc" data-en="Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for any occasion." data-es="Conjuntos seleccionados de piezas hechas a mano, bellamente envueltos y listos para encantar a alguien especial. Perfectos para cualquier ocasión.">Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for any occasion.</p>
+      <p class="service-desc" data-en="Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for birthdays, Pride, holidays &amp; more." data-es="Conjuntos de piezas hechas a mano, bellamente envueltos para encantar a alguien especial. Perfectos para cumpleaños, el Orgullo, fiestas y más.">Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for birthdays, Pride, holidays &amp; more.</p>
       <a href="#shop" class="service-link" data-en="Shop Bundles →" data-es="Ver Paquetes →">Shop Bundles →</a>
     </div>
   </div>
@@ -588,17 +641,17 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <section class="book" id="book">
   <div class="book-left reveal">
     <p class="section-label" data-en="Custom Orders" data-es="Pedidos Personalizados">Custom Orders</p>
-    <h2 class="section-title" data-en="Request something<br><em>just for you</em>" data-es="Pide algo<br><em>solo para ti</em>">Request something<br><em>just for you</em></h2>
-    <p class="book-body" data-en="Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours." data-es="Cada pieza personalizada comienza con una conversación. Cuéntame tu visión — los colores, la sensación, la magia que quieres que se teja — y crearé algo verdaderamente tuyo.">Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours.</p>
+    <h2 class="section-title" data-en="Request something <em>just for you</em>" data-es="Pide algo <em>solo para ti</em>">Request something <em>just for you</em></h2>
+    <p class="book-body" data-en="Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours." data-es="Cada pieza personalizada comienza con una conversación. Cuéntame tu visión — los colores, la sensación, la magia que quieres — y crearé algo verdaderamente tuyo.">Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours.</p>
     <ul class="perks">
       <li data-en="Fully unique, made to your specifications" data-es="Totalmente único, hecho a tus especificaciones">Fully unique, made to your specifications</li>
-      <li data-en="Natural and premium yarn options" data-es="Opciones de hilo natural y premium">Natural and premium yarn options</li>
+      <li data-en="Pride flags, fandoms, characters & more" data-es="Banderas del orgullo, fandoms, personajes y más">Pride flags, fandoms, characters &amp; more</li>
       <li data-en="Progress photos throughout the process" data-es="Fotos del proceso durante la creación">Progress photos throughout the process</li>
       <li data-en="Ships anywhere in the US" data-es="Envíos a cualquier lugar de EE.UU.">Ships anywhere in the US</li>
     </ul>
-    <a href="#" class="btn-gold" data-en="View Portfolio" data-es="Ver Portafolio">View Portfolio</a>
+    <a href="#" class="btn-primary" data-en="View Portfolio 🌸" data-es="Ver Portafolio 🌸">View Portfolio 🌸</a>
   </div>
-  <div class="book-right">
+  <div class="book-right" id="contact">
     <p class="form-title" data-en="Begin your <em>commission</em>" data-es="Inicia tu <em>encargo</em>">Begin your <em>commission</em></p>
     <div class="form">
       <div class="form-row">
@@ -611,6 +664,7 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
           <option data-en="Choose a category…" data-es="Elige una categoría…">Choose a category…</option>
           <option data-en="Wearable (shawl, beanie, etc.)" data-es="Ropa (chal, gorro, etc.)">Wearable (shawl, beanie, etc.)</option>
           <option data-en="Amigurumi / Plushie" data-es="Amigurumi / Peluche">Amigurumi / Plushie</option>
+          <option data-en="Pride Blanket" data-es="Cobija del Orgullo">Pride Blanket</option>
           <option data-en="Home Décor" data-es="Decoración del Hogar">Home Décor</option>
           <option data-en="Bag or Tote" data-es="Bolsa o Tote">Bag or Tote</option>
           <option data-en="Gift Bundle" data-es="Paquete de Regalo">Gift Bundle</option>
@@ -620,9 +674,9 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
       </div>
       <div class="field">
         <label data-en="Tell me about your vision" data-es="Cuéntame tu visión">Tell me about your vision</label>
-        <textarea rows="4" data-placeholder-en="Colors, characters, feelings, references — the more detail the better…" data-placeholder-es="Colores, personajes, sensaciones, referencias — cuantos más detalles, mejor…" placeholder="Colors, characters, feelings, references — the more detail the better…"></textarea>
+        <textarea rows="4" data-placeholder-en="Colors, characters, pride flag, feelings, references — the more detail the better…" data-placeholder-es="Colores, personajes, bandera del orgullo, sensaciones, referencias — cuantos más detalles, mejor…" placeholder="Colors, characters, pride flag, feelings, references — the more detail the better…"></textarea>
       </div>
-      <button class="btn-gold" style="align-self:flex-start;border:none;" data-en="Send Request ✦" data-es="Enviar Pedido ✦">Send Request ✦</button>
+      <button class="btn-primary" style="align-self:flex-start;" data-en="Send Request ✦" data-es="Enviar Pedido ✦">Send Request ✦</button>
     </div>
   </div>
 </section>
@@ -641,12 +695,12 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
     </div>
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text" data-en='"I asked for a shawl inspired by the Wild Hunt and what arrived was beyond anything I imagined. The craftsmanship is extraordinary."' data-es='"Pedí un chal inspirado en la Cacería Salvaje y lo que llegó superó todo lo que imaginé. La artesanía es extraordinaria."'>"I asked for a shawl inspired by the Wild Hunt and what arrived was beyond anything I imagined. The craftsmanship is extraordinary."</p>
+      <p class="test-text" data-en='"My pride blanket arrived just in time for the parade. I literally cried — the colors were perfect and the quality is incredible."' data-es='"Mi cobija del orgullo llegó justo a tiempo para el desfile. Lloré de verdad — los colores eran perfectos y la calidad es increíble."'>"My pride blanket arrived just in time for the parade. I literally cried — the colors were perfect and the quality is incredible."</p>
       <span class="test-author">— Rowan T. · Madison</span>
     </div>
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text" data-en='"Gifted the mushroom set to my sister for Samhain. She cried. I'm ordering three more as holiday gifts. Just stunning."' data-es='"Le regalé el set de hongos a mi hermana. Lloró de emoción. Ya estoy pidiendo tres más para los días festivos. Simplemente hermoso."'>"Gifted the mushroom set to my sister for Samhain. She cried. I'm ordering three more as holiday gifts. Just stunning."</p>
+      <p class="test-text" data-en='"Gifted the frog amigurumi to my best friend. She screamed. I'm ordering three more. The frog energy is immaculate."' data-es='"Le regalé el amigurumi rana a mi mejor amiga. Gritó de emoción. Ya estoy pidiendo tres más. La energía rana es inmaculada."'>"Gifted the frog amigurumi to my best friend. She screamed. I'm ordering three more. The frog energy is immaculate."</p>
       <span class="test-author">— Elena R. · Milwaukee</span>
     </div>
   </div>
@@ -656,7 +710,7 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <section class="newsletter">
   <div class="reveal" style="position:relative;z-index:2;">
     <p class="section-label" data-en="Join the Circle" data-es="Únete al Círculo">Join the Circle</p>
-    <h2 class="section-title" data-en="New drops, patterns &amp;<br><em>forest dispatches</em>" data-es="Novedades, patrones &amp;<br><em>mensajes del bosque</em>">New drops, patterns &amp;<br><em>forest dispatches</em></h2>
+    <h2 class="section-title" data-en="New drops, patterns & frog dispatches 🐸" data-es="Novedades, patrones y noticias rana 🐸">New drops, patterns &amp; frog dispatches 🐸</h2>
     <p class="newsletter-sub" data-en="Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox." data-es="Lanzamientos de temporada, magia entre bastidores y descuentos exclusivos — directo a tu correo.">Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox.</p>
     <div class="nl-form">
       <input type="email" data-placeholder-en="your@email.com" data-placeholder-es="tu@correo.com" placeholder="your@email.com"/>
@@ -669,15 +723,15 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">Avyda Creations</div>
-      <p class="footer-tagline" data-en="Handcrafted crochet rooted in Celtic lore<br>and the wild magic of the fae.<br>Made with love in Madison, WI." data-es="Crochet artesanal arraigado en la tradición celta<br>y la magia salvaje de las hadas.<br>Hecho con amor en Madison, WI.">Handcrafted crochet rooted in Celtic lore<br>and the wild magic of the fae.<br>Made with love in Madison, WI.</p>
+      <div class="footer-logo">Avyda Creations 🐸</div>
+      <p class="footer-tagline" data-en="Queer-owned handmade crochet rooted in fae magic,<br>frog energy & love.<br>Made with 💜 in Madison, WI." data-es="Crochet artesanal de dueñas queer, arraigado en<br>magia de hadas, energía rana y amor.<br>Hecho con 💜 en Madison, WI.">Queer-owned handmade crochet rooted in fae magic,<br>frog energy &amp; love.<br>Made with 💜 in Madison, WI.</p>
     </div>
     <div class="footer-col">
       <h4 data-en="Shop" data-es="Tienda">Shop</h4>
       <ul>
         <li><a href="#" data-en="Wearables" data-es="Ropa">Wearables</a></li>
         <li><a href="#" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</a></li>
-        <li><a href="#" data-en="Home Décor" data-es="Decoración">Home Décor</a></li>
+        <li><a href="#" data-en="Pride Collection" data-es="Colección Orgullo">Pride Collection</a></li>
         <li><a href="#" data-en="Patterns" data-es="Patrones">Patterns</a></li>
         <li><a href="#" data-en="Gift Bundles" data-es="Regalos">Gift Bundles</a></li>
       </ul>
@@ -686,8 +740,8 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
       <h4 data-en="Craft" data-es="Artesanía">Craft</h4>
       <ul>
         <li><a href="#" data-en="Custom Orders" data-es="Pedidos">Custom Orders</a></li>
-        <li><a href="#" data-en="Care Instructions" data-es="Instrucciones de Cuidado">Care Instructions</a></li>
-        <li><a href="#" data-en="Shipping Info" data-es="Información de Envío">Shipping Info</a></li>
+        <li><a href="#" data-en="Care Instructions" data-es="Cuidado">Care Instructions</a></li>
+        <li><a href="#" data-en="Shipping Info" data-es="Envíos">Shipping Info</a></li>
         <li><a href="#" data-en="Returns" data-es="Devoluciones">Returns</a></li>
       </ul>
     </div>
@@ -704,7 +758,7 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
   </div>
   <div class="footer-bottom">
     <span>© 2026 Avyda Creations · avydacreations.com</span>
-    <span>Made with 🧶 &amp; ✨ in Madison, WI</span>
+    <span data-en="Made with 🧶 💜 & frog energy in Madison, WI" data-es="Hecho con 🧶 💜 y energía rana en Madison, WI">Made with 🧶 💜 &amp; frog energy in Madison, WI</span>
   </div>
 </footer>
 
@@ -712,7 +766,7 @@ footer{background:#ecdcff;padding:4rem 4rem 2rem;border-top:1px solid rgba(212,1
 /* ── SCROLL SHADOW ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  nav.style.boxShadow = window.scrollY > 30 ? '0 4px 30px rgba(212,160,200,0.2)' : 'none';
+  nav.style.boxShadow = window.scrollY > 30 ? '0 4px 30px rgba(201,112,176,0.2)' : 'none';
 });
 
 /* ── REVEAL ON SCROLL ── */
@@ -732,33 +786,21 @@ let currentLang = 'en';
 
 function setLang(lang) {
   currentLang = lang;
-
-  // Update toggle buttons
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
   });
-
-  // Update html lang attribute
   document.documentElement.lang = lang;
-
-  // Update all elements with data-en / data-es
   document.querySelectorAll('[data-en][data-es]').forEach(el => {
     const text = el.getAttribute('data-' + lang);
     if (text !== null) el.innerHTML = text;
   });
-
-  // Update label text (labels use data-en/data-es on themselves)
   document.querySelectorAll('label[data-en]').forEach(el => {
     el.textContent = el.getAttribute('data-' + lang);
   });
-
-  // Update placeholder attributes
   document.querySelectorAll('[data-placeholder-en]').forEach(el => {
     const attr = 'data-placeholder-' + lang;
     if (el.hasAttribute(attr)) el.placeholder = el.getAttribute(attr);
   });
-
-  // Update select options
   document.querySelectorAll('select option[data-en]').forEach(el => {
     el.textContent = el.getAttribute('data-' + lang);
   });
