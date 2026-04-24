@@ -213,7 +213,8 @@ nav {
   content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse at center,rgba(201,112,176,0.18) 0%,transparent 70%);
 }
-.about-knot{font-size:9rem;opacity:0.5;animation:floatPlant 5s ease-in-out infinite;position:relative;z-index:1;}
+.about-photo{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;}
+.about-knot{display:none;}
 .about-tag{
   position:absolute;top:2rem;left:2rem;
   background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
@@ -505,8 +506,8 @@ footer{background:#2d1442;padding:4rem 3rem 2rem;}
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-visual">
+    <img class="about-photo" src="about_photo.png" alt="Avyda Creations founders in frog hats"/>
     <div class="about-tag" data-en="Est. Madison, WI" data-es="Fundado en Madison, WI">Est. Madison, WI</div>
-    <div class="about-knot">🧶</div>
     <div class="about-corner"></div>
   </div>
   <div class="about-content reveal">
