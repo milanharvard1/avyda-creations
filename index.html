@@ -1,235 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Avyda Creations — Stitched with Ancestral Love</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Avyda Creations — Cozy Crochet & Frog Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --night:#070415;--deep:#100830;--void:#160a38;--panel:#1c1048;
-  --card:rgba(28,16,72,0.8);
-  --lavender:#9b70d4;--violet:#7040c0;--pink:#f040a0;
-  --teal:#3cc8b0;--gold:#d4a840;--coral:#f07850;
-  --cream:#f0e8ff;--text:#e8d8ff;
-  --muted:rgba(232,216,255,0.55);--border:rgba(155,112,212,0.2);
+:root {
+  --bg:       #fde8f5;
+  --bg2:      #f5d8f0;
+  --panel:    #f8e4ff;
+  --panel2:   #eedcff;
+  --accent:   #c970b0;
+  --accent2:  #9b5fc0;
+  --teal:     #4abcb0;
+  --rose:     #e8609a;
+  --text:     #2d1442;
+  --text-mid: rgba(45,20,66,0.65);
+  --text-lt:  rgba(45,20,66,0.45);
+  --border:   rgba(201,112,176,0.25);
 }
+
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--night);color:var(--text);font-family:'Lato',sans-serif;overflow-x:hidden;
-  cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%239b70d4' opacity='0.8'/%3E%3C/svg%3E") 10 10,auto;}
 
-/* STARS */
-#stars-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--dur,3s) ease-in-out infinite;animation-delay:var(--delay,0s);}
-@keyframes twinkle{0%,100%{opacity:0.1;transform:scale(0.8);}50%{opacity:var(--max-op,0.8);transform:scale(1.2);}}
+body {
+  background: linear-gradient(160deg, #fde8f5 0%, #f5d8f0 40%, #efd8ff 100%);
+  min-height:100vh;
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23c970b0' opacity='0.8'/%3E%3C/svg%3E") 10 10, auto;
+}
 
-/* FIREFLY */
-.firefly{position:fixed;width:5px;height:5px;border-radius:50%;background:#b8ff80;box-shadow:0 0 8px 3px rgba(184,255,128,0.6);pointer-events:none;z-index:1;animation:fly var(--dur,8s) ease-in-out infinite;animation-delay:var(--delay,0s);}
-@keyframes fly{0%{transform:translate(0,0);opacity:0;}10%{opacity:0.9;}25%{transform:translate(var(--x1),var(--y1));opacity:0.5;}50%{transform:translate(var(--x2),var(--y2));opacity:0.9;}75%{transform:translate(var(--x3),var(--y3));opacity:0.4;}90%{opacity:0.7;}100%{transform:translate(0,0);opacity:0;}}
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:0.15;
+}
 
-/* MOON */
-.moon{position:fixed;top:6vh;right:8vw;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff9e0 0%,#f5d060 40%,#d4a840 80%);box-shadow:0 0 40px 20px rgba(212,168,64,0.3),0 0 80px 40px rgba(212,168,64,0.15);z-index:0;animation:moonPulse 6s ease-in-out infinite;pointer-events:none;}
-@keyframes moonPulse{0%,100%{box-shadow:0 0 40px 20px rgba(212,168,64,0.3),0 0 80px 40px rgba(212,168,64,0.15);}50%{box-shadow:0 0 60px 30px rgba(212,168,64,0.45),0 0 120px 60px rgba(212,168,64,0.2);}}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 3rem;background:rgba(7,4,21,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:all 0.3s;}
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 3rem;
+  background:rgba(253,232,245,0.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
 .nav-brand{display:flex;align-items:center;gap:0.85rem;text-decoration:none;}
-.nav-logo-circle{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2a1060,#1a0840);border:2px solid var(--lavender);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 12px rgba(155,112,212,0.4);}
-.nav-logo-text .name{font-family:'Cinzel',serif;font-size:0.95rem;color:var(--lavender);letter-spacing:0.1em;display:block;}
-.nav-logo-text .sub{font-size:0.62rem;color:var(--muted);letter-spacing:0.08em;}
-.latina-pill{background:linear-gradient(135deg,var(--coral),var(--pink));color:#fff;font-family:'Lato',sans-serif;font-weight:700;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.18rem 0.6rem;border-radius:10px;margin-left:0.4rem;vertical-align:middle;}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;font-weight:600;}
-.nav-links a:hover{color:var(--lavender);}
+.nav-logo-img{
+  width:54px;height:54px;border-radius:50%;
+  border:2px solid rgba(201,112,176,0.35);
+  overflow:hidden;flex-shrink:0;
+  box-shadow:0 2px 10px rgba(201,112,176,0.2);
+  object-fit:cover;
+}
+.nav-logo-text{display:flex;flex-direction:column;}
+.nav-logo-name{font-family:'Cinzel',serif;font-size:1rem;color:var(--accent);letter-spacing:0.08em;line-height:1.2;}
+.nav-logo-sub{font-family:'Lato',sans-serif;font-size:0.68rem;color:var(--text-mid);letter-spacing:0.05em;}
+
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;font-weight:600;}
+.nav-links a:hover{color:var(--accent);}
+
 .nav-right{display:flex;align-items:center;gap:0.9rem;}
 .lang-toggle{display:flex;align-items:center;border:1px solid var(--border);border-radius:20px;overflow:hidden;}
-.lang-btn{background:transparent;border:none;color:var(--muted);padding:0.3rem 0.65rem;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;}
-.lang-btn.active{background:var(--lavender);color:#fff;border-radius:20px;}
-.btn-touch{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border:none;cursor:pointer;padding:0.6rem 1.4rem;border-radius:30px;font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;box-shadow:0 3px 12px rgba(240,64,160,0.35);transition:all 0.2s;}
-.btn-touch:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(240,64,160,0.5);}
+.lang-btn{background:transparent;border:none;color:var(--text-mid);padding:0.3rem 0.65rem;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;}
+.lang-btn.active{background:var(--accent);color:#fff;border-radius:20px;}
+.lang-btn:not(.active):hover{background:rgba(201,112,176,0.12);}
+.btn-touch{
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  color:#fff;border:none;cursor:pointer;
+  padding:0.6rem 1.4rem;border-radius:30px;
+  font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.05em;display:flex;align-items:center;gap:0.4rem;
+  transition:all 0.2s;box-shadow:0 3px 12px rgba(155,95,192,0.35);
+}
+.btn-touch:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(155,95,192,0.45);}
 
-/* HERO */
-.hero{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;padding:8rem 3rem 5rem;overflow:hidden;}
-.hero-bg-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 80% 20%,rgba(212,168,64,0.06) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 20% 60%,rgba(155,112,212,0.12) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 60% 80%,rgba(240,64,160,0.06) 0%,transparent 60%);pointer-events:none;}
-.hero-content{position:relative;z-index:2;max-width:700px;}
-.hero-badges{display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:1.8rem;opacity:0;animation:fadeUp 0.9s 0.2s forwards;}
-.badge{font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:20px;}
-.b-latina{background:linear-gradient(135deg,var(--coral),var(--pink));color:#fff;}
-.b-made{background:rgba(155,112,212,0.18);color:var(--lavender);border:1px solid rgba(155,112,212,0.3);}
-.b-madison{background:rgba(60,200,176,0.15);color:var(--teal);border:1px solid rgba(60,200,176,0.3);}
-.hero-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal);margin-bottom:1.2rem;opacity:0;animation:fadeUp 0.9s 0.4s forwards;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.8rem);font-weight:300;line-height:1.0;margin-bottom:0.5rem;opacity:0;animation:fadeUp 0.9s 0.6s forwards;}
-.ht-main{color:var(--cream);}
-.ht-glow{color:var(--lavender);text-shadow:0 0 30px rgba(155,112,212,0.5);font-style:italic;}
-.hero-tagline{font-family:'Pacifico',cursive;font-size:clamp(1.3rem,3vw,2rem);color:var(--gold);text-shadow:0 0 20px rgba(212,168,64,0.5);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s 0.8s forwards;}
-.hero-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s 0.9s forwards;}
-.hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;max-width:80px;background:linear-gradient(to right,transparent,rgba(155,112,212,0.4));}
-.hero-divider::after{background:linear-gradient(to left,transparent,rgba(155,112,212,0.4));}
-.hero-divider span{color:var(--lavender);font-size:0.75rem;letter-spacing:0.3em;}
-.hero-sub{font-size:1rem;line-height:1.8;color:var(--muted);max-width:540px;margin-bottom:2rem;opacity:0;animation:fadeUp 0.9s 1s forwards;}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s 1.1s forwards;}
-.btn-primary{background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;padding:0.9rem 2rem;border:none;cursor:pointer;border-radius:30px;font-family:'Lato',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;text-decoration:none;display:inline-block;transition:all 0.25s;box-shadow:0 4px 18px rgba(240,64,160,0.4);}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(240,64,160,0.55);}
-.btn-ghost{background:transparent;color:var(--lavender);padding:0.9rem 2rem;border:1.5px solid rgba(155,112,212,0.4);border-radius:30px;font-family:'Lato',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;text-decoration:none;display:inline-block;transition:all 0.25s;}
-.btn-ghost:hover{border-color:var(--lavender);background:rgba(155,112,212,0.12);}
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:7rem 3rem 4rem;position:relative;overflow:hidden;gap:2rem;
+}
+/* sparkle decorations */
+.sparkle{
+  position:absolute;pointer-events:none;font-size:1.4rem;
+  animation:twinkle 3s ease-in-out infinite;
+}
+.sp1{top:12%;left:5%;animation-delay:0s;font-size:1rem;}
+.sp2{top:20%;left:55%;animation-delay:0.8s;}
+.sp3{top:8%;right:10%;animation-delay:1.5s;font-size:1rem;}
+.sp4{top:40%;left:48%;animation-delay:0.3s;font-size:0.9rem;}
+.sp5{bottom:30%;left:10%;animation-delay:1.2s;}
+.sp6{bottom:20%;right:15%;animation-delay:0.6s;font-size:1rem;}
+.sp7{top:65%;left:40%;animation-delay:2s;font-size:0.8rem;}
+.sp8{top:30%;right:28%;animation-delay:1.8s;font-size:0.9rem;}
+.floater{position:absolute;opacity:0.4;animation:floatRandom 7s ease-in-out infinite;pointer-events:none;}
+.f1{top:18%;left:50%;font-size:1.8rem;animation-delay:0s;}
+.f2{top:55%;right:5%;font-size:1.4rem;animation-delay:2.5s;}
+.f3{bottom:25%;left:46%;font-size:1.6rem;animation-delay:1s;}
 
-/* MARQUEE */
-.marquee-bar{background:var(--void);padding:0.8rem 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:2;}
-.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 28s linear infinite;}
-.marquee-item{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--lavender);padding:0 2rem;}
-.marquee-sep{color:var(--gold);opacity:0.7;}
+.hero-left{position:relative;z-index:2;}
 
-/* SECTION COMMONS */
-section{position:relative;z-index:2;}
-.section-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);margin-bottom:0.8rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;color:var(--cream);}
-.section-title em{color:var(--lavender);font-style:italic;}
-.sec-pad{padding:6rem 3rem;}
+/* queer-owned badge */
+.qo-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:#fff;border-radius:30px;
+  padding:0.45rem 1rem;margin-bottom:1.8rem;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--text);
+  box-shadow:0 2px 12px rgba(201,112,176,0.15);
+  border:1px solid rgba(201,112,176,0.15);
+}
+.qo-badge .rainbow{font-size:1rem;}
 
-/* ABOUT */
-.about{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;}
-.about-visual{background:var(--void);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:400px;}
-.about-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(155,112,212,0.15) 0%,transparent 70%);}
-.about-art{font-size:7rem;opacity:0.65;animation:floatPlant 6s ease-in-out infinite;z-index:1;position:relative;text-align:center;line-height:1.4;}
-.about-tag{position:absolute;top:2rem;left:2rem;background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;padding:0.35rem 1rem;border-radius:20px;font-family:'Lato',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;}
-.about-content{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;background:rgba(7,4,21,0.5);border-left:1px solid var(--border);}
-.about-body{font-size:0.97rem;line-height:1.9;color:var(--muted);margin:1.5rem 0;}
-.about-body strong{color:var(--gold);}
-.abuela-quote{background:rgba(28,16,72,0.8);border-left:3px solid var(--gold);padding:1.2rem 1.5rem;margin:1rem 0 1.5rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--cream);line-height:1.7;border-radius:0 8px 8px 0;}
-.traits{display:flex;flex-direction:column;gap:0.7rem;}
-.trait{display:flex;align-items:center;gap:0.8rem;font-size:0.88rem;color:rgba(232,216,255,0.8);}
-.trait::before{content:'✦';color:var(--gold);font-size:0.6rem;flex-shrink:0;}
+/* hero headline */
+.hero-title{
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:clamp(2.6rem,5vw,4rem);line-height:1.15;
+  margin-bottom:1.4rem;
+}
+.ht-dark{color:var(--text);}
+.ht-pink{color:var(--rose);}
+.ht-purple{color:var(--accent2);}
+.ht-script{
+  font-family:'Pacifico',cursive;font-weight:400;
+  color:var(--teal);font-size:clamp(2.2rem,4.5vw,3.5rem);
+  display:block;margin-top:0.1rem;
+}
 
-/* PRODUCTS */
-.products{padding:6rem 3rem;background:var(--deep);}
+.hero-sub{
+  font-size:1rem;line-height:1.75;color:var(--text-mid);
+  max-width:480px;margin-bottom:2rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--rose),var(--accent));
+  color:#fff;padding:0.85rem 2rem;border:none;cursor:pointer;
+  border-radius:30px;font-family:'Lato',sans-serif;font-size:0.8rem;
+  font-weight:700;letter-spacing:0.05em;text-decoration:none;
+  display:inline-block;transition:all 0.2s;
+  box-shadow:0 4px 14px rgba(232,96,154,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(232,96,154,0.45);}
+.btn-secondary{
+  background:transparent;color:var(--accent2);
+  padding:0.85rem 2rem;border:2px solid rgba(155,95,192,0.35);
+  border-radius:30px;font-family:'Lato',sans-serif;font-size:0.8rem;
+  font-weight:700;letter-spacing:0.05em;text-decoration:none;
+  display:inline-block;transition:all 0.2s;
+}
+.btn-secondary:hover{border-color:var(--accent2);background:rgba(155,95,192,0.08);}
+
+/* hero right — product showcase */
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  min-height:420px;
+}
+.hero-showcase{position:relative;width:340px;height:380px;}
+.showcase-phone{
+  position:absolute;width:200px;
+  background:#1a1a1a;border-radius:22px;
+  padding:8px;box-shadow:0 20px 50px rgba(45,20,66,0.3);
+}
+.showcase-phone.front{top:40px;left:0;z-index:3;transform:rotate(-4deg);}
+.showcase-phone.back{top:0;right:0;z-index:2;transform:rotate(3deg);}
+.phone-screen{
+  background:linear-gradient(135deg,#2d2d2d,#1a1a1a);
+  border-radius:16px;overflow:hidden;
+  aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;
+  font-size:4rem;
+}
+.showcase-sticker{
+  position:absolute;bottom:10px;right:10px;z-index:4;
+  width:130px;height:130px;border-radius:50%;
+  background:linear-gradient(135deg,#a8e6a0,#6ec876);
+  border:3px solid #fff;
+  box-shadow:0 8px 25px rgba(45,20,66,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  animation:floatPlant 4s ease-in-out infinite;
+}
+
+/* ── MARQUEE ── */
+.marquee-bar{
+  background:linear-gradient(90deg,var(--accent2),var(--accent),var(--rose),var(--accent),var(--accent2));
+  padding:0.75rem 0;overflow:hidden;
+}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 22s linear infinite;}
+.marquee-item{font-family:'Lato',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#fff;padding:0 2rem;opacity:0.9;}
+.marquee-sep{color:rgba(255,255,255,0.5);}
+
+/* ── SECTION COMMONS ── */
+.section-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+.section-title{font-family:'Lato',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;color:var(--text);}
+.section-title em{color:var(--accent);font-style:italic;font-family:'Pacifico',cursive;font-weight:400;font-size:0.9em;}
+
+/* ── ABOUT ── */
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
+.about-visual{
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  min-height:400px;
+}
+.about-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(201,112,176,0.18) 0%,transparent 70%);
+}
+.about-knot{font-size:9rem;opacity:0.5;animation:floatPlant 5s ease-in-out infinite;position:relative;z-index:1;}
+.about-tag{
+  position:absolute;top:2rem;left:2rem;
+  background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
+  padding:0.35rem 1rem;border-radius:20px;font-family:'Lato',sans-serif;
+  font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+}
+.about-corner{position:absolute;bottom:2rem;right:2rem;width:60px;height:60px;border-right:2px solid var(--border);border-bottom:2px solid var(--border);}
+.about-content{
+  padding:5rem 4rem;display:flex;flex-direction:column;
+  justify-content:center;background:rgba(253,232,245,0.6);
+  border-left:1px solid var(--border);
+}
+.about-body{font-size:1rem;line-height:1.85;color:var(--text-mid);margin:1.5rem 0 2rem;}
+.traits{display:flex;flex-direction:column;gap:0.8rem;}
+.trait{display:flex;align-items:center;gap:0.8rem;font-size:0.88rem;color:rgba(45,20,66,0.8);}
+.trait::before{content:'✦';color:var(--accent);font-size:0.6rem;flex-shrink:0;}
+
+/* ── PRODUCTS ── */
+.products{padding:6rem 3rem;background:transparent;}
 .products-header{text-align:center;margin-bottom:4rem;}
 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;cursor:pointer;position:relative;backdrop-filter:blur(6px);}
-.product-card:hover{transform:translateY(-8px);border-color:rgba(155,112,212,0.5);box-shadow:0 20px 50px rgba(155,112,212,0.15);}
-.product-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;position:relative;overflow:hidden;}
-.pi1{background:linear-gradient(135deg,#1a3020,#0d2018);}
-.pi2{background:linear-gradient(135deg,#0a2030,#051020);}
-.pi3{background:linear-gradient(135deg,#301020,#180810);}
-.pi4{background:linear-gradient(135deg,#1a1030,#0d0820);}
-.pi5{background:linear-gradient(135deg,#200a30,#100518);}
-.pi6{background:linear-gradient(135deg,#2a2000,#181000);}
-.pi7{background:linear-gradient(135deg,#0a2428,#051218);}
-.product-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,4,21,0.6),transparent);}
-.new-badge{position:absolute;top:1rem;right:1rem;z-index:2;background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;padding:0.2rem 0.7rem;border-radius:12px;font-family:'Lato',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.1em;}
-.free-badge{position:absolute;top:1rem;left:1rem;z-index:2;background:linear-gradient(135deg,var(--teal),#2090a0);color:#fff;padding:0.2rem 0.7rem;border-radius:12px;font-family:'Lato',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.1em;}
+.product-card{
+  background:rgba(255,255,255,0.7);
+  border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;
+  transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;
+  cursor:pointer;position:relative;
+  backdrop-filter:blur(6px);
+}
+.product-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(201,112,176,0.5);
+  box-shadow:0 20px 50px rgba(201,112,176,0.2);
+}
+.product-img{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;position:relative;overflow:hidden;border-radius:14px 14px 0 0;
+}
+.pi1{background:linear-gradient(135deg,#f0d8ff,#e8c8f8);}
+.pi2{background:linear-gradient(135deg,#ffd8ee,#ffc0e0);}
+.pi3{background:linear-gradient(135deg,#d8e8ff,#c8d8f8);}
+.pi4{background:linear-gradient(135deg,#d8ffd8,#c8efc8);}
+.pi5{background:linear-gradient(135deg,#ffd8d8,#f8c8c8);}
+.pi6{background:linear-gradient(135deg,#ffd8f8,#f8c8f0);}
+.product-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(253,232,245,0.3),transparent);}
+.new-badge{
+  position:absolute;top:1rem;right:1rem;z-index:2;
+  background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
+  padding:0.2rem 0.7rem;border-radius:12px;font-family:'Lato',sans-serif;
+  font-size:0.55rem;font-weight:700;letter-spacing:0.1em;
+}
 .product-info{padding:1.4rem;}
-.product-cat{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--lavender);margin-bottom:0.4rem;font-weight:700;}
-.product-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);margin-bottom:0.4rem;}
-.product-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.2rem;}
+.product-cat{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;font-weight:700;}
+.product-name{font-family:'Lato',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+.product-desc{font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:1.2rem;}
 .product-foot{display:flex;align-items:center;justify-content:space-between;}
-.product-price{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);}
-.product-add{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;border:none;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;transition:all 0.2s;}
-.product-add:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(240,64,160,0.4);}
-.product-add.free-btn{background:linear-gradient(135deg,var(--teal),#2090a0);}
+.product-price{font-family:'Lato',sans-serif;font-size:1.2rem;font-weight:700;color:var(--accent);}
+.product-add{
+  font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;
+  background:linear-gradient(135deg,var(--rose),var(--accent));color:#fff;
+  border:none;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;transition:all 0.2s;
+}
+.product-add:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(232,96,154,0.35);}
 
-/* COMMISSIONS */
-.commissions{padding:6rem 3rem;background:var(--void);border-top:1px solid var(--border);text-align:center;}
-.closed-banner{display:inline-flex;align-items:center;gap:0.8rem;background:rgba(240,120,80,0.1);border:1.5px solid rgba(240,120,80,0.4);color:var(--coral);padding:0.6rem 1.5rem;border-radius:30px;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;}
-.blink-dot{width:8px;height:8px;background:var(--coral);border-radius:50%;animation:blink 2s step-end infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.commissions .section-title{margin-bottom:1rem;}
-.commissions-body{font-size:0.97rem;color:var(--muted);line-height:1.8;max-width:560px;margin:0 auto 3rem;}
-.waitlist-box{max-width:560px;margin:0 auto;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:2.5rem;text-align:left;}
-.waitlist-box h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--cream);margin-bottom:1.5rem;font-weight:300;}
-.waitlist-box h3 em{color:var(--lavender);font-style:italic;}
-.wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
-.wl-full{grid-column:1/-1;}
-.wl-field label{display:block;font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lavender);margin-bottom:0.4rem;}
-.wl-field input,.wl-field select,.wl-field textarea{width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;color:var(--cream);font-family:'Lato',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;}
-.wl-field input:focus,.wl-field textarea:focus{border-color:var(--lavender);}
-.wl-field select option{background:var(--panel);}
-.wl-field textarea{resize:none;}
+/* ── SERVICES ── */
+.services{background:rgba(255,255,255,0.45);padding:6rem 3rem;border-top:1px solid var(--border);backdrop-filter:blur(6px);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.service-item{
+  padding:2.5rem 2rem;background:rgba(255,255,255,0.7);border:1px solid var(--border);
+  border-radius:16px;transition:all 0.3s;cursor:pointer;
+}
+.service-item:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(201,112,176,0.18);}
+.service-icon{font-size:2rem;margin-bottom:1.2rem;display:block;}
+.service-name{font-family:'Lato',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.7rem;}
+.service-desc{font-size:0.85rem;color:var(--text-mid);line-height:1.7;margin-bottom:1.2rem;}
+.service-link{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(201,112,176,0.3);padding-bottom:2px;}
 
-/* FAIRS */
-.fairs{padding:6rem 3rem;background:var(--deep);}
-.fairs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.fair-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.3s;backdrop-filter:blur(6px);}
-.fair-card:hover{transform:translateY(-5px);border-color:rgba(155,112,212,0.4);box-shadow:0 15px 40px rgba(155,112,212,0.12);}
-.fair-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
-.fair-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);margin-bottom:0.4rem;}
-.fair-season{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.8rem;font-weight:700;}
-.fair-desc{font-size:0.85rem;color:var(--muted);line-height:1.7;}
+/* ── BOOK ── */
+.book{display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
+.book-left{
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.book-left::before{
+  content:'🌸';font-size:18rem;position:absolute;
+  right:-3rem;top:50%;transform:translateY(-50%);
+  opacity:0.06;pointer-events:none;
+}
+.book-body{font-size:1rem;line-height:1.8;color:var(--text-mid);margin:1.2rem 0 2rem;}
+.perks{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2.5rem;}
+.perks li{font-size:0.88rem;color:rgba(45,20,66,0.8);display:flex;align-items:center;gap:0.7rem;}
+.perks li::before{content:'✦';color:var(--accent);font-size:0.55rem;flex-shrink:0;}
+.book-right{
+  background:rgba(255,255,255,0.6);padding:5rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-left:1px solid var(--border);backdrop-filter:blur(6px);
+}
+.form-title{font-family:'Lato',sans-serif;font-size:1.7rem;font-weight:700;color:var(--text);margin-bottom:2rem;}
+.form-title em{color:var(--accent);font-style:italic;font-family:'Pacifico',cursive;font-weight:400;}
+.form{display:flex;flex-direction:column;gap:1.2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.field label{display:block;font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.45rem;}
+.field input,.field select,.field textarea{
+  width:100%;padding:0.75rem 1rem;
+  background:rgba(255,255,255,0.8);
+  border:1.5px solid var(--border);border-radius:10px;
+  color:var(--text);font-family:'Lato',sans-serif;font-size:0.88rem;
+  outline:none;transition:border-color 0.2s;
+}
+.field input:focus,.field textarea:focus{border-color:var(--accent);}
+.field select option{background:#fff;}
+.field textarea{resize:none;}
 
-/* FREE PATTERNS */
-.patterns{padding:6rem 3rem;background:var(--void);border-top:1px solid var(--border);}
-.patterns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.pattern-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.3s;backdrop-filter:blur(6px);text-align:center;}
-.pattern-card:hover{transform:translateY(-5px);border-color:rgba(60,200,176,0.4);}
-.pattern-emoji{font-size:3rem;margin-bottom:1rem;}
-.pattern-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);margin-bottom:0.4rem;}
-.pattern-level{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.8rem;font-weight:700;}
-.pattern-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.4rem;}
-.btn-pattern{display:inline-block;background:transparent;border:1.5px solid rgba(60,200,176,0.4);color:var(--teal);padding:0.5rem 1.2rem;border-radius:20px;font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;}
-.btn-pattern:hover{background:rgba(60,200,176,0.12);border-color:var(--teal);}
+/* ── TESTIMONIALS ── */
+.testimonials{padding:6rem 3rem;background:transparent;border-top:1px solid var(--border);}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.test-card{
+  padding:2rem;background:rgba(255,255,255,0.7);
+  border:1px solid var(--border);border-radius:16px;
+  border-top:3px solid var(--accent);
+  transition:transform 0.3s;backdrop-filter:blur(6px);
+}
+.test-card:hover{transform:translateY(-4px);}
+.test-stars{color:var(--rose);font-size:0.85rem;letter-spacing:3px;margin-bottom:1rem;}
+.test-text{font-family:'Lato',sans-serif;font-style:italic;font-size:0.95rem;line-height:1.75;color:var(--text);margin-bottom:1.2rem;}
+.test-author{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:var(--accent);}
 
-/* NEWSLETTER */
-.newsletter{background:linear-gradient(135deg,var(--void),var(--panel));padding:5rem 3rem;text-align:center;border-top:1px solid var(--border);position:relative;overflow:hidden;}
-.newsletter::before{content:'✦';font-size:18rem;position:absolute;left:-2rem;top:50%;transform:translateY(-50%);color:rgba(155,112,212,0.04);font-family:'Cormorant Garamond',serif;pointer-events:none;}
-.newsletter::after{content:'✦';font-size:18rem;position:absolute;right:-2rem;top:50%;transform:translateY(-50%);color:rgba(155,112,212,0.04);font-family:'Cormorant Garamond',serif;pointer-events:none;}
-.newsletter .section-title{margin-bottom:0.8rem;}
-.newsletter-sub{font-size:0.95rem;color:var(--muted);margin-bottom:2.5rem;}
-.nl-form{display:flex;max-width:460px;margin:0 auto;border-radius:30px;overflow:hidden;box-shadow:0 0 30px rgba(155,112,212,0.15);}
-.nl-form input{flex:1;padding:0.9rem 1.5rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-right:none;color:var(--cream);font-family:'Lato',sans-serif;font-size:0.88rem;outline:none;border-radius:30px 0 0 30px;}
-.nl-form button{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;padding:0.9rem 1.8rem;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;transition:all 0.2s;border-radius:0 30px 30px 0;}
-.nl-form button:hover{filter:brightness(1.1);}
+/* ── NEWSLETTER ── */
+.newsletter{
+  background:linear-gradient(135deg,var(--accent2),var(--accent),var(--rose));
+  padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;
+}
+.newsletter::before{content:'🌸🌷🌺';font-size:5rem;position:absolute;left:3rem;top:50%;transform:translateY(-50%);opacity:0.15;}
+.newsletter::after{content:'🌺🌷🌸';font-size:5rem;position:absolute;right:3rem;top:50%;transform:translateY(-50%);opacity:0.15;}
+.newsletter .section-label{color:rgba(255,255,255,0.75);}
+.newsletter .section-title{color:#fff;}
+.newsletter-sub{font-size:0.95rem;color:rgba(255,255,255,0.75);margin-bottom:2.5rem;}
+.nl-form{display:flex;gap:0;max-width:460px;margin:0 auto;border-radius:30px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);}
+.nl-form input{
+  flex:1;padding:0.9rem 1.5rem;border:none;
+  background:#fff;color:var(--text);
+  font-family:'Lato',sans-serif;font-size:0.88rem;outline:none;
+}
+.nl-form button{
+  background:var(--text);color:#fff;padding:0.9rem 1.8rem;
+  border:none;cursor:pointer;font-family:'Lato',sans-serif;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.08em;transition:background 0.2s;
+}
+.nl-form button:hover{background:#1a0a2e;}
 
-/* FOOTER */
-footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--border);}
+/* ── FOOTER ── */
+footer{background:#2d1442;padding:4rem 3rem 2rem;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
-.footer-logo{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--lavender);letter-spacing:0.12em;margin-bottom:0.8rem;}
-.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(232,216,255,0.35);line-height:1.7;}
-.footer-col h4{font-family:'Lato',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(155,112,212,0.6);margin-bottom:1.2rem;}
+.footer-logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--accent);letter-spacing:0.12em;margin-bottom:0.8rem;}
+.footer-tagline{font-family:'Lato',sans-serif;font-style:italic;font-size:0.88rem;color:rgba(255,255,255,0.4);line-height:1.6;}
+.footer-col h4{font-family:'Lato',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,112,176,0.7);margin-bottom:1.2rem;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-.footer-col ul a{font-size:0.85rem;color:rgba(232,216,255,0.4);text-decoration:none;transition:color 0.2s;}
-.footer-col ul a:hover{color:var(--lavender);}
-.footer-bottom{border-top:1px solid rgba(155,112,212,0.1);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:rgba(232,216,255,0.25);}
+.footer-col ul a{font-size:0.85rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--accent);}
+.footer-bottom{border-top:1px solid rgba(201,112,176,0.15);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.25);}
 
-/* ANIMATIONS */
+/* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 @keyframes floatPlant{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-14px) rotate(3deg);}}
+@keyframes floatRandom{0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes twinkle{0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.9;transform:scale(1.3);}}
+
+.hero-left > *{opacity:0;animation:fadeUp 0.9s forwards;}
+.qo-badge{animation-delay:0.2s;}
+.hero-title{animation-delay:0.4s;}
+.hero-sub{animation-delay:0.6s;}
+.hero-actions{animation-delay:0.8s;}
+
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s,transform 0.8s;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+/* ── RESPONSIVE ── */
 @media(max-width:900px){
   nav{padding:0.8rem 1.2rem;}
-  .nav-links,.latina-pill{display:none;}
-  .hero{padding:6rem 1.5rem 3rem;}
-  .about{grid-template-columns:1fr;}
-  .about-content{padding:3rem 2rem;}
-  .products,.fairs,.patterns,.commissions,.newsletter{padding:4rem 1.5rem;}
-  .products-grid,.fairs-grid,.patterns-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;text-align:center;}
+  .hero-right{display:none;}
+  .qo-badge{margin:0 auto 1.5rem;}
+  .hero-actions{justify-content:center;}
+  .about,.book{grid-template-columns:1fr;}
+  .about-content,.book-left,.book-right{padding:3rem 2rem;}
+  .products,.services,.testimonials,.newsletter{padding:4rem 1.5rem;}
+  .products-grid,.services-grid,.test-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
   footer{padding:3rem 1.5rem 1.5rem;}
-  .wl-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<div id="stars-layer"></div>
-<div class="moon"></div>
-
 <!-- NAV -->
 <nav id="nav">
   <a class="nav-brand" href="#">
-    <div class="nav-logo-circle">🧶</div>
+    <img class="nav-logo-img" src="logo.png" alt="Avyda Creations Logo"/>
     <div class="nav-logo-text">
-      <span class="name">Avyda Creations <span class="latina-pill">Latina-Owned</span></span>
-      <span class="sub">handmade crochet ✦ est. 2024 · Madison, WI</span>
+      <span class="nav-logo-name">Avyda Creations</span>
+      <span class="nav-logo-sub">handmade crochet ✦ est. 2024</span>
     </div>
   </a>
   <ul class="nav-links">
     <li><a href="#shop" data-en="Shop" data-es="Tienda">Shop</a></li>
-    <li><a href="#about" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
-    <li><a href="#fairs" data-en="Fairs" data-es="Ferias">Fairs</a></li>
-    <li><a href="#patterns" data-en="Free Patterns" data-es="Patrones Gratis">Free Patterns</a></li>
-    <li><a href="#commissions" data-en="Commissions" data-es="Encargos">Commissions</a></li>
+    <li><a href="#book" data-en="Custom Orders" data-es="Pedidos">Custom Orders</a></li>
+    <li><a href="#about" data-en="About Us" data-es="Nosotras">About Us</a></li>
+    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -242,24 +438,46 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-gradient"></div>
-  <div class="hero-content">
-    <div class="hero-badges">
-      <span class="badge b-latina" data-en="🇲🇽 Latina-Owned" data-es="🇲🇽 Dueñas Latinas">🇲🇽 Latina-Owned</span>
-      <span class="badge b-made" data-en="Handmade with Love" data-es="Hecho con Amor">Handmade with Love</span>
-      <span class="badge b-madison">📍 Madison, WI</span>
+  <!-- sparkles -->
+  <span class="sparkle sp1">✦</span>
+  <span class="sparkle sp2">✦</span>
+  <span class="sparkle sp3">✦</span>
+  <span class="sparkle sp4">✦</span>
+  <span class="sparkle sp5">✦</span>
+  <span class="sparkle sp6">✦</span>
+  <span class="sparkle sp7">✦</span>
+  <span class="sparkle sp8">✦</span>
+  <span class="floater f1">🌸</span>
+  <span class="floater f2">🌷</span>
+  <span class="floater f3">✨</span>
+
+  <div class="hero-left">
+    <div class="qo-badge">
+      <span class="rainbow">🏳️‍🌈</span>
+      <span data-en="Queer-Owned · Handmade with Heart" data-es="De Dueñas Queer · Hecho con Corazón">Queer-Owned · Handmade with Heart</span>
     </div>
-    <p class="hero-eyebrow" data-en="✦ &nbsp; Crochet · Celtic Lore · Latina Spirit &nbsp; ✦" data-es="✦ &nbsp; Crochet · Tradición Celta · Espíritu Latino &nbsp; ✦">✦ &nbsp; Crochet · Celtic Lore · Latina Spirit &nbsp; ✦</p>
     <h1 class="hero-title">
-      <span class="ht-main" data-en="Avyda" data-es="Avyda">Avyda</span><br>
-      <span class="ht-glow" data-en="Creations" data-es="Creations">Creations</span>
+      <span class="ht-dark" data-en="Cozy crochet," data-es="Crochet acogedor,">Cozy crochet,</span><br>
+      <span class="ht-pink" data-en="fairy magic" data-es="magia de hadas">fairy magic</span>
+      <span class="ht-dark"> &amp; </span><br>
+      <span class="ht-script" data-en="frog energy 🐸" data-es="energía rana 🐸">frog energy 🐸</span>
     </h1>
-    <p class="hero-tagline" data-en="Stitched with ancestral love" data-es="Tejido con amor ancestral">Stitched with ancestral love</p>
-    <div class="hero-divider"><span>✦ ✦ ✦</span></div>
-    <p class="hero-sub" data-en="Dark fae magic meets vibrant Latina heart. Our parents came from Mexico. Our grandmother Theresa gave us the gift of craft. Every stitch carries her spirit forward." data-es="La magia oscura de las hadas se une al corazón vibrante latino. Nuestros padres vinieron de México. Nuestra abuela Theresa nos dio el don de las manualidades. Cada punto lleva su espíritu hacia adelante.">Dark fae magic meets vibrant Latina heart. Our parents came from Mexico. Our grandmother Theresa gave us the gift of craft. Every stitch carries her spirit forward.</p>
+    <p class="hero-sub" data-en="Avyda Creations is a queer-owned handmade crochet shop bringing whimsical, one-of-a-kind pieces to life — from amigurumi to pride blankets, every stitch is made with love. 💜🌸" data-es="Avyda Creations es una tienda de crochet hecho a mano de dueñas queer que da vida a piezas únicas y caprichosas — desde amigurumis hasta cobijas del orgullo, cada punto está hecho con amor. 💜🌸">Avyda Creations is a queer-owned handmade crochet shop bringing whimsical, one-of-a-kind pieces to life — from amigurumi to pride blankets, every stitch is made with love. 💜🌸</p>
     <div class="hero-actions">
       <a href="#shop" class="btn-primary" data-en="Enter the Shop 🧶" data-es="Entrar a la Tienda 🧶">Enter the Shop 🧶</a>
-      <a href="#about" class="btn-ghost" data-en="Our Story ✦" data-es="Nuestra Historia ✦">Our Story ✦</a>
+      <a href="#book" class="btn-secondary" data-en="Request Custom" data-es="Pedir Personalizado">Request Custom</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-showcase">
+      <div class="showcase-phone back">
+        <div class="phone-screen">🧶</div>
+      </div>
+      <div class="showcase-phone front">
+        <div class="phone-screen">🌸</div>
+      </div>
+      <div class="showcase-sticker"><img src="logo.png" alt="Avyda Creations" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>
     </div>
   </div>
 </section>
@@ -267,40 +485,40 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
 <!-- MARQUEE -->
 <div class="marquee-bar">
   <div class="marquee-track">
-    <span class="marquee-item" data-en="Latina-Owned" data-es="Dueñas Latinas">Latina-Owned</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Handmade Crochet" data-es="Crochet Artesanal">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Fae-Inspired" data-es="Inspirado en las Hadas">Fae-Inspired</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Madison WI" data-es="Madison WI">Madison WI</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Stitched with Ancestral Love" data-es="Tejido con Amor Ancestral">Stitched with Ancestral Love</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Frog Hats & Amigurumi" data-es="Gorros Rana y Amigurumi">Frog Hats & Amigurumi</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Free Patterns Available" data-es="Patrones Gratis Disponibles">Free Patterns Available</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Latina-Owned" data-es="Dueñas Latinas">Latina-Owned</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Queer-Owned" data-es="Dueñas Queer">Queer-Owned</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños de las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Pride Blankets" data-es="Cobijas del Orgullo">Pride Blankets</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Custom Orders Welcome" data-es="Pedidos Personalizados">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Made with Love in Madison" data-es="Hecho con Amor en Madison">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Frog Energy 🐸" data-es="Energía Rana 🐸">Frog Energy 🐸</span><span class="marquee-item marquee-sep">✦</span>
     <span class="marquee-item" data-en="Handmade Crochet" data-es="Crochet Artesanal">Handmade Crochet</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Fae-Inspired" data-es="Inspirado en las Hadas">Fae-Inspired</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Madison WI" data-es="Madison WI">Madison WI</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Stitched with Ancestral Love" data-es="Tejido con Amor Ancestral">Stitched with Ancestral Love</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Frog Hats & Amigurumi" data-es="Gorros Rana y Amigurumi">Frog Hats & Amigurumi</span><span class="marquee-item marquee-sep">✦</span>
-    <span class="marquee-item" data-en="Free Patterns Available" data-es="Patrones Gratis Disponibles">Free Patterns Available</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Queer-Owned" data-es="Dueñas Queer">Queer-Owned</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Fae-Inspired Designs" data-es="Diseños de las Hadas">Fae-Inspired Designs</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Pride Blankets" data-es="Cobijas del Orgullo">Pride Blankets</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Custom Orders Welcome" data-es="Pedidos Personalizados">Custom Orders Welcome</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Made with Love in Madison" data-es="Hecho con Amor en Madison">Made with Love in Madison</span><span class="marquee-item marquee-sep">✦</span>
+    <span class="marquee-item" data-en="Frog Energy 🐸" data-es="Energía Rana 🐸">Frog Energy 🐸</span><span class="marquee-item marquee-sep">✦</span>
   </div>
 </div>
 
-<!-- ABOUT / GRANDMA THERESA -->
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-visual">
-    <div class="about-tag" data-en="Est. Madison, WI · 2024" data-es="Fundado Madison, WI · 2024">Est. Madison, WI · 2024</div>
-    <div class="about-art">🧶<br>🌙<br>🌺</div>
+    <div class="about-tag" data-en="Est. Madison, WI" data-es="Fundado en Madison, WI">Est. Madison, WI</div>
+    <div class="about-knot">🧶</div>
+    <div class="about-corner"></div>
   </div>
   <div class="about-content reveal">
     <p class="section-label" data-en="Our Story" data-es="Nuestra Historia">Our Story</p>
-    <h2 class="section-title" data-en="For <em>Grandma Theresa</em>" data-es="Para la <em>Abuela Theresa</em>">For <em>Grandma Theresa</em></h2>
-    <p class="about-body" data-en="Our parents were born in Mexico and built a life in Madison, WI full of color, warmth, and tradition. At the heart of that tradition was <strong>our grandmother Theresa</strong> — a master of arts and crafts who could make something beautiful out of anything she touched." data-es="Nuestros padres nacieron en México y construyeron una vida en Madison, WI llena de color, calidez y tradición. En el corazón de esa tradición estaba <strong>nuestra abuela Theresa</strong> — una maestra de las artes y manualidades que podía hacer algo hermoso con todo lo que tocaba.">Our parents were born in Mexico and built a life in Madison, WI full of color, warmth, and tradition. At the heart of that tradition was <strong>our grandmother Theresa</strong> — a master of arts and crafts who could make something beautiful out of anything she touched.</p>
-    <div class="abuela-quote" data-en="&ldquo;She taught us that every stitch is a conversation with the people who came before us.&rdquo;" data-es="&ldquo;Ella nos enseñó que cada punto es una conversación con las personas que nos precedieron.&rdquo;">&ldquo;She taught us that every stitch is a conversation with the people who came before us.&rdquo;</div>
-    <p class="about-body" data-en="That passion passed down through generations and landed here — in our hands, in our hooks, in Avyda Creations. We blend the dark magic of Irish fae mythology with the bold, joyful colors of our Latina heritage. Every piece is both worlds at once." data-es="Esa pasión pasó de generación en generación y llegó aquí — en nuestras manos, en nuestros ganchos, en Avyda Creations. Mezclamos la magia oscura de la mitología irlandesa con los colores audaces y alegres de nuestra herencia latina. Cada pieza es ambos mundos a la vez.">That passion passed down through generations and landed here — in our hands, in our hooks, in Avyda Creations. We blend the dark magic of Irish fae mythology with the bold, joyful colors of our Latina heritage. Every piece is both worlds at once.</p>
+    <h2 class="section-title" data-en="Stitched with <em>ancestral love</em>" data-es="Tejido con <em>amor ancestral</em>">Stitched with <em>ancestral love</em></h2>
+    <p class="about-body" data-en="Our parents were born in Mexico and built a home in Madison, WI filled with warmth, color, and tradition. At the heart of that tradition was our <strong>grandmother Theresa</strong> — a master of arts and crafts who could turn any material into something beautiful and meaningful." data-es="Nuestros padres nacieron en México y construyeron un hogar en Madison, WI lleno de calidez, color y tradición. En el corazón de esa tradición estaba nuestra <strong>abuela Theresa</strong> — una maestra de las artes y manualidades que podía convertir cualquier material en algo hermoso y significativo.">Our parents were born in Mexico and built a home in Madison, WI filled with warmth, color, and tradition. At the heart of that tradition was our <strong>grandmother Theresa</strong> — a master of arts and crafts who could turn any material into something beautiful and meaningful.</p>
+    <p class="about-body" style="margin-top:-0.5rem;" data-en="Her passion passed down through generations and found us — here, with our hooks, weaving frog energy and fae magic into every piece. Avyda Creations is her legacy, made new." data-es="Su pasión pasó de generación en generación y nos encontró — aquí, con nuestros ganchos, tejiendo energía rana y magia de hadas en cada pieza. Avyda Creations es su legado, hecho nuevo.">Her passion passed down through generations and found us — here, with our hooks, weaving frog energy and fae magic into every piece. Avyda Creations is her legacy, made new.</p>
     <div class="traits">
-      <div class="trait" data-en="Latina-owned, born &amp; crafting in Madison, WI" data-es="De dueñas latinas, nacidas y tejiendo en Madison, WI">Latina-owned, born &amp; crafting in Madison, WI</div>
-      <div class="trait" data-en="Grandmother Theresa's love in every stitch" data-es="El amor de la abuela Theresa en cada punto">Grandmother Theresa's love in every stitch</div>
-      <div class="trait" data-en="Dark fae aesthetics + vibrant Latina color energy" data-es="Estética fae oscura + energía de color latina vibrante">Dark fae aesthetics + vibrant Latina color energy</div>
+      <div class="trait" data-en="Latina-owned — our parents are from Mexico" data-es="De dueñas latinas — nuestros padres son de México">Latina-owned — our parents are from Mexico</div>
+      <div class="trait" data-en="Carrying on Grandma Theresa's craft tradition" data-es="Continuando la tradición artesanal de la abuela Theresa">Carrying on Grandma Theresa's craft tradition</div>
       <div class="trait" data-en="100% handmade — no machines, ever" data-es="100% hecho a mano — sin máquinas, jamás">100% handmade — no machines, ever</div>
+      <div class="trait" data-en="Custom orders crafted just for you" data-es="Pedidos personalizados creados solo para ti">Custom orders crafted just for you</div>
     </div>
   </div>
 </section>
@@ -313,154 +531,177 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
   </div>
   <div class="products-grid">
     <div class="product-card reveal">
-      <div class="product-img pi1">🐸</div>
+      <div class="product-img pi1">🧣</div>
       <div class="product-info">
-        <p class="product-cat" data-en="Hats & Beanies" data-es="Gorros">Hats & Beanies</p>
-        <h3 class="product-name" data-en="Frog Hat / Beanie" data-es="Gorro Ranita">Frog Hat / Beanie</h3>
-        <p class="product-desc" data-en="Cozy crocheted frog beanies with big eyes and little legs. The signature Avyda look — maximum frog energy." data-es="Gorros de rana tejidos a crochet con ojos grandes y piernitas. El look icónico de Avyda — máxima energía rana.">Cozy crocheted frog beanies with big eyes and little legs. The signature Avyda look — maximum frog energy.</p>
-        <div class="product-foot"><span class="product-price">$35</span><button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button></div>
+        <p class="product-cat" data-en="Wearables" data-es="Ropa y Accesorios">Wearables</p>
+        <h3 class="product-name" data-en="Forest Fae Wrap" data-es="Chal del Bosque Feérico">Forest Fae Wrap</h3>
+        <p class="product-desc" data-en="A flowing moss-green shawl with delicate leaf lace border. Warm as a forest in autumn." data-es="Un chal verde musgo con delicado borde de encaje de hojas. Cálido como un bosque en otoño.">A flowing moss-green shawl with delicate leaf lace border. Warm as a forest in autumn.</p>
+        <div class="product-foot">
+          <span class="product-price">$68</span>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
+        </div>
       </div>
     </div>
     <div class="product-card reveal">
       <div class="product-img pi2">
-        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>👽
+        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>🧢
+      </div>
+      <div class="product-info">
+        <p class="product-cat" data-en="Accessories" data-es="Accesorios">Accessories</p>
+        <h3 class="product-name" data-en="Celtic Knot Beanie" data-es="Gorro de Nudo Celta">Celtic Knot Beanie</h3>
+        <p class="product-desc" data-en="Hand-stitched Celtic knotwork in deep forest tones. A crown for the wild-hearted." data-es="Nudo celta cosido a mano en tonos de bosque. Una corona para los de corazón salvaje.">Hand-stitched Celtic knotwork in deep forest tones. A crown for the wild-hearted.</p>
+        <div class="product-foot">
+          <span class="product-price">$42</span>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img pi3">🏳️‍🌈</div>
+      <div class="product-info">
+        <p class="product-cat" data-en="Pride Collection" data-es="Colección Orgullo">Pride Collection</p>
+        <h3 class="product-name" data-en="Pride Blanket" data-es="Cobija del Orgullo">Pride Blanket</h3>
+        <p class="product-desc" data-en="Handmade blanket in your flag's colors. Bi, trans, lesbian, ace & more — made with love." data-es="Cobija hecha a mano en los colores de tu bandera. Bi, trans, lésbica, ace y más — hecha con amor.">Handmade blanket in your flag's colors. Bi, trans, lesbian, ace &amp; more — made with love.</p>
+        <div class="product-foot">
+          <span class="product-price">$95</span>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img pi4">🐸</div>
+      <div class="product-info">
+        <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
+        <h3 class="product-name" data-en="Lil' Frog Friend" data-es="Ranita Amiguita">Lil' Frog Friend</h3>
+        <p class="product-desc" data-en="A soft crocheted frog with big eyes and maximum vibes. The mascot of Avyda energy." data-es="Una suave rana de crochet con ojos grandes y vibras máximas. La mascota de la energía Avyda.">A soft crocheted frog with big eyes and maximum vibes. The mascot of Avyda energy.</p>
+        <div class="product-foot">
+          <span class="product-price">$45</span>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img pi5">
+        <div class="new-badge" data-en="New" data-es="Nuevo">New</div>🍄
       </div>
       <div class="product-info">
         <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
-        <h3 class="product-name" data-en="Alien Plushie" data-es="Peluche Alienígena">Alien Plushie</h3>
-        <p class="product-desc" data-en="Little green alien amigurumi — big eyes, soft belly, full of extraterrestrial charm. Adopt one today." data-es="Pequeño amigurumi alienígena verde — ojos grandes, barriguita suave, lleno de encanto extraterrestre. Adóptalo hoy.">Little green alien amigurumi — big eyes, soft belly, full of extraterrestrial charm. Adopt one today.</p>
-        <div class="product-foot"><span class="product-price">$40</span><button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img pi3">🦝</div>
-      <div class="product-info">
-        <p class="product-cat" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</p>
-        <h3 class="product-name" data-en="Raccoon with Heart" data-es="Mapache con Corazón">Raccoon with Heart</h3>
-        <p class="product-desc" data-en="A soft crocheted raccoon holding a tiny heart. Equal parts mischievous and adorable — just like us." data-es="Un suave mapache de crochet sosteniendo un pequeño corazón. Igual de travieso que adorable — como nosotras.">A soft crocheted raccoon holding a tiny heart. Equal parts mischievous and adorable — just like us.</p>
-        <div class="product-foot"><span class="product-price">$45</span><button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img pi4">👩‍🦰</div>
-      <div class="product-info">
-        <p class="product-cat" data-en="Amigurumi Dolls" data-es="Muñecas Amigurumi">Amigurumi Dolls</p>
-        <h3 class="product-name" data-en="Irish Redhead Doll" data-es="Muñeca Pelirroja Irlandesa">Irish Redhead Doll</h3>
-        <p class="product-desc" data-en="A handmade Celtic-inspired doll with a cascade of red hair. The fae mythology made soft and snuggly." data-es="Una muñeca hecha a mano inspirada en la tradición celta con una cascada de cabello rojo. La mitología fae hecha suave y acogedora.">A handmade Celtic-inspired doll with a cascade of red hair. The fae mythology made soft and snuggly.</p>
-        <div class="product-foot"><span class="product-price">$55</span><button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img pi5">🧣</div>
-      <div class="product-info">
-        <p class="product-cat" data-en="Wearables" data-es="Ropa y Accesorios">Wearables</p>
-        <h3 class="product-name" data-en="Colorful Shawl & Wrap" data-es="Chal y Rebozo Colorido">Colorful Shawl & Wrap</h3>
-        <p class="product-desc" data-en="Bold, flowing shawls in hot pink, teal, violet and gold. Wear the whole palette. Wrap yourself in magic." data-es="Chales amplios y llamativos en rosa vibrante, turquesa, violeta y dorado. Usa toda la paleta. Envuélvete en magia.">Bold, flowing shawls in hot pink, teal, violet and gold. Wear the whole palette. Wrap yourself in magic.</p>
-        <div class="product-foot"><span class="product-price">$68</span><button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img pi7">
-        <div class="free-badge" data-en="Free!" data-es="¡Gratis!">Free!</div>📄
-      </div>
-      <div class="product-info">
-        <p class="product-cat" data-en="Digital Patterns" data-es="Patrones Digitales">Digital Patterns</p>
-        <h3 class="product-name" data-en="Free Crochet Patterns" data-es="Patrones de Crochet Gratis">Free Crochet Patterns</h3>
-        <p class="product-desc" data-en="Select patterns shared freely with the crochet community — because knowledge deserves to be passed on, just like Grandma Theresa did." data-es="Patrones seleccionados compartidos libremente con la comunidad de crochet — porque el conocimiento merece transmitirse, igual que lo hizo la abuela Theresa.">Select patterns shared freely with the crochet community — because knowledge deserves to be passed on.</p>
-        <div class="product-foot"><span class="product-price" data-en="Free" data-es="Gratis">Free</span><button class="product-add free-btn" data-en="Download ↓" data-es="Descargar ↓">Download ↓</button></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMMISSIONS -->
-<section class="commissions" id="commissions">
-  <div class="reveal">
-    <div class="closed-banner"><div class="blink-dot"></div><span data-en="Commissions Currently Closed" data-es="Encargos Actualmente Cerrados">Commissions Currently Closed</span></div>
-    <h2 class="section-title" data-en="Custom Orders — <em>Waitlist Open</em>" data-es="Pedidos Personalizados — <em>Lista de Espera Abierta</em>">Custom Orders — <em>Waitlist Open</em></h2>
-    <p class="commissions-body" data-en="We pour our whole heart into every commission and want to give each piece the time it deserves. Custom orders are currently closed, but join the waitlist and we'll reach out when we open again. Every request is seen and valued." data-es="Ponemos todo el corazón en cada encargo y queremos dar a cada pieza el tiempo que merece. Los pedidos personalizados están cerrados actualmente, pero únete a la lista de espera y te contactaremos cuando abramos de nuevo. Cada solicitud es vista y valorada.">We pour our whole heart into every commission and want to give each piece the time it deserves. Custom orders are currently closed, but join the waitlist and we'll reach out when we open again. Every request is seen and valued.</p>
-    <div class="waitlist-box">
-      <h3 data-en="Join the <em>Waitlist</em>" data-es="Únete a la <em>Lista de Espera</em>">Join the <em>Waitlist</em></h3>
-      <div class="wl-grid">
-        <div class="wl-field"><label data-en="Your Name" data-es="Tu Nombre">Your Name</label><input type="text" data-placeholder-en="Your name" data-placeholder-es="Tu nombre" placeholder="Your name"/></div>
-        <div class="wl-field"><label data-en="Email" data-es="Correo Electrónico">Email</label><input type="email" placeholder="you@example.com"/></div>
-        <div class="wl-field wl-full">
-          <label data-en="What would you like made?" data-es="¿Qué te gustaría que hiciera?">What would you like made?</label>
-          <select>
-            <option data-en="Choose a category…" data-es="Elige una categoría…">Choose a category…</option>
-            <option data-en="Frog Hat / Beanie" data-es="Gorro Ranita">Frog Hat / Beanie</option>
-            <option data-en="Amigurumi / Plushie" data-es="Amigurumi / Peluche">Amigurumi / Plushie</option>
-            <option data-en="Amigurumi Doll" data-es="Muñeca Amigurumi">Amigurumi Doll</option>
-            <option data-en="Shawl or Wrap" data-es="Chal o Rebozo">Shawl or Wrap</option>
-            <option data-en="Something else…" data-es="Algo más…">Something else…</option>
-          </select>
-        </div>
-        <div class="wl-field wl-full">
-          <label data-en="Tell me your vision" data-es="Cuéntame tu visión">Tell me your vision</label>
-          <textarea rows="4" data-placeholder-en="Colors, characters, references, feelings — as much detail as you want…" data-placeholder-es="Colores, personajes, referencias, sensaciones — todos los detalles que quieras…" placeholder="Colors, characters, references, feelings — as much detail as you want…"></textarea>
+        <h3 class="product-name" data-en="Cottagecore Mushroom Set" data-es="Set de Hongos Cottagecore">Cottagecore Mushroom Set</h3>
+        <p class="product-desc" data-en="Three little crochet mushrooms — red cap, brown cap, ghost white. A fairy ring for your shelf." data-es="Tres pequeños hongos de crochet — rojo, marrón y blanco fantasma. Un círculo de hadas para tu estante.">Three little crochet mushrooms — red cap, brown cap, ghost white. A fairy ring for your shelf.</p>
+        <div class="product-foot">
+          <span class="product-price">$38</span>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
         </div>
       </div>
-      <button class="btn-primary" style="border:none;" data-en="Join Waitlist ✦" data-es="Unirme a la Lista ✦">Join Waitlist ✦</button>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img pi6">🌸</div>
+      <div class="product-info">
+        <p class="product-cat" data-en="Bags &amp; Totes" data-es="Bolsas y Totes">Bags &amp; Totes</p>
+        <h3 class="product-name" data-en="Wildflower Market Bag" data-es="Bolsa de Mercado Silvestre">Wildflower Market Bag</h3>
+        <p class="product-desc" data-en="Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy." data-es="Tote de tejido abierto con apliques florales. Ligera, resistente y llena de energía del prado.">Open-weave tote with floral crochet appliqués. Light, strong, and full of meadow energy.</p>
+        <div class="product-foot">
+          <span class="product-price">$48</span>
+          <button class="product-add" data-en="Add to Cart" data-es="Agregar">Add to Cart</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FAIRS -->
-<section class="fairs" id="fairs">
-  <div class="reveal" style="text-align:center;margin-bottom:0;">
-    <p class="section-label" data-en="Find Us IRL" data-es="Encuéntranos en Persona">Find Us IRL</p>
-    <h2 class="section-title" data-en="Vendor Fair <em>Appearances</em>" data-es="Apariciones en <em>Ferias</em>">Vendor Fair <em>Appearances</em></h2>
-  </div>
-  <div class="fairs-grid">
-    <div class="fair-card reveal">
-      <span class="fair-icon">🌸</span>
-      <div class="fair-name" data-en="Spring Eclectic Market" data-es="Mercado Ecléctico de Primavera">Spring Eclectic Market</div>
-      <div class="fair-season" data-en="Spring · Madison, WI" data-es="Primavera · Madison, WI">Spring · Madison, WI</div>
-      <p class="fair-desc" data-en="Our spring debut — local makers, wild colors, and crochet magic. Come say hi and take home something handmade." data-es="Nuestro debut de primavera — artesanos locales, colores salvajes y magia del crochet. Ven a saludar y lleva algo hecho a mano.">Our spring debut — local makers, wild colors, and crochet magic. Come say hi and take home something handmade.</p>
-    </div>
-    <div class="fair-card reveal">
-      <span class="fair-icon">🏳️‍🌈</span>
-      <div class="fair-name" data-en="Big Gay Holiday Market" data-es="Gran Mercado Navideño Gay">Big Gay Holiday Market</div>
-      <div class="fair-season" data-en="Winter · Madison, WI" data-es="Invierno · Madison, WI">Winter · Madison, WI</div>
-      <p class="fair-desc" data-en="Our favorite market of the year — a celebration of queer makers and the community that holds us. Warmest vibes of the season." data-es="Nuestro mercado favorito del año — una celebración de artesanas queer y la comunidad que nos sostiene. La vibra más cálida de la temporada.">Our favorite market of the year — a celebration of queer makers and the community that holds us. Warmest vibes of the season.</p>
-    </div>
-    <div class="fair-card reveal">
-      <span class="fair-icon">✊</span>
-      <div class="fair-name">Femmestival</div>
-      <div class="fair-season" data-en="Annual · Madison, WI" data-es="Anual · Madison, WI">Annual · Madison, WI</div>
-      <p class="fair-desc" data-en="A feminist art &amp; craft festival celebrating women, femmes, and non-binary makers. We show up every year with pride and yarn." data-es="Un festival feminista de arte y artesanías que celebra a mujeres, femmes y artesanas no binarias. Aparecemos cada año con orgullo y hilo.">A feminist art &amp; craft festival celebrating women, femmes, and non-binary makers. We show up every year with pride and yarn.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FREE PATTERNS -->
-<section class="patterns" id="patterns">
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="reveal" style="text-align:center;">
-    <p class="section-label" data-en="Community First" data-es="La Comunidad Primero">Community First</p>
-    <h2 class="section-title" data-en="Free <em>Crochet Patterns</em>" data-es="Patrones de Crochet <em>Gratis</em>">Free <em>Crochet Patterns</em></h2>
-    <p style="font-size:0.95rem;color:var(--muted);max-width:520px;margin:1rem auto 0;" data-en="Grandma Theresa shared her craft freely. So do we. These patterns are our gift to the community." data-es="La abuela Theresa compartía su arte libremente. Nosotras también. Estos patrones son nuestro regalo a la comunidad.">Grandma Theresa shared her craft freely. So do we. These patterns are our gift to the community.</p>
+    <p class="section-label" data-en="What We Offer" data-es="Lo Que Ofrecemos">What We Offer</p>
+    <h2 class="section-title" data-en="More than crochet — a whole <em>craft</em>" data-es="Más que crochet — todo un <em>arte</em>">More than crochet — a whole <em>craft</em></h2>
   </div>
-  <div class="patterns-grid">
-    <div class="pattern-card reveal">
-      <div class="pattern-emoji">🐸</div>
-      <div class="pattern-name" data-en="Mini Frog Amigurumi" data-es="Mini Rana Amigurumi">Mini Frog Amigurumi</div>
-      <div class="pattern-level" data-en="Beginner Friendly" data-es="Apta para Principiantes">Beginner Friendly</div>
-      <p class="pattern-desc" data-en="Our most popular pattern — a tiny crocheted frog with chubby legs. Perfect first amigurumi." data-es="Nuestro patrón más popular — una pequeña rana de crochet con piernitas regordetas. Perfecto primer amigurumi.">Our most popular pattern — a tiny crocheted frog with chubby legs. Perfect first amigurumi.</p>
-      <a href="#" class="btn-pattern" data-en="Download Free ↓" data-es="Descargar Gratis ↓">Download Free ↓</a>
+  <div class="services-grid">
+    <div class="service-item reveal">
+      <span class="service-icon">🪡</span>
+      <h3 class="service-name" data-en="Custom Commissions" data-es="Encargos Personalizados">Custom Commissions</h3>
+      <p class="service-desc" data-en="Have a vision? We'll bring it to life in yarn. Character plushies, pride pieces, heirloom blankets — no idea is too wild." data-es="¿Tienes una visión? La haremos realidad en hilo. Peluches de personajes, piezas del orgullo, mantas de herencia — ninguna idea es demasiado descabellada.">Have a vision? We'll bring it to life in yarn. Character plushies, pride pieces, heirloom blankets — no idea is too wild.</p>
+      <a href="#book" class="service-link" data-en="Start a Request →" data-es="Hacer un Pedido →">Start a Request →</a>
     </div>
-    <div class="pattern-card reveal">
-      <div class="pattern-emoji">🌙</div>
-      <div class="pattern-name" data-en="Moon &amp; Stars Shawlette" data-es="Chaleco Luna y Estrellas">Moon &amp; Stars Shawlette</div>
-      <div class="pattern-level" data-en="Intermediate" data-es="Intermedio">Intermediate</div>
-      <p class="pattern-desc" data-en="A crescent moon lace shawlette inspired by midnight skies and Celtic star lore. Delicate and dreamy." data-es="Un chaleco de encaje en forma de luna creciente inspirado en cielos de medianoche y el lore estelar celta. Delicado y soñador.">A crescent moon lace shawlette inspired by midnight skies and Celtic star lore. Delicate and dreamy.</p>
-      <a href="#" class="btn-pattern" data-en="Download Free ↓" data-es="Descargar Gratis ↓">Download Free ↓</a>
+    <div class="service-item reveal">
+      <span class="service-icon">📖</span>
+      <h3 class="service-name" data-en="Crochet Patterns" data-es="Patrones de Crochet">Crochet Patterns</h3>
+      <p class="service-desc" data-en="Digital PDF patterns for every skill level, with step-by-step illustrations and whimsical designs you won't find anywhere else." data-es="Patrones PDF digitales para todos los niveles, con ilustraciones paso a paso y diseños caprichosos únicos.">Digital PDF patterns for every skill level, with step-by-step illustrations and whimsical designs you won't find anywhere else.</p>
+      <a href="#shop" class="service-link" data-en="Browse Patterns →" data-es="Ver Patrones →">Browse Patterns →</a>
     </div>
-    <div class="pattern-card reveal">
-      <div class="pattern-emoji">🌺</div>
-      <div class="pattern-name" data-en="Abuela's Flower Square" data-es="Cuadro Floral de la Abuela">Abuela's Flower Square</div>
-      <div class="pattern-level" data-en="All Levels" data-es="Todos los Niveles">All Levels</div>
-      <p class="pattern-desc" data-en="A granny square redesigned with bold Latina florals — our tribute to Grandma Theresa. Make it your own." data-es="Un granny square rediseñado con florales latinas atrevidas — nuestro tributo a la abuela Theresa. Hazlo tuyo.">A granny square redesigned with bold Latina florals — our tribute to Grandma Theresa. Make it your own.</p>
-      <a href="#" class="btn-pattern" data-en="Download Free ↓" data-es="Descargar Gratis ↓">Download Free ↓</a>
+    <div class="service-item reveal">
+      <span class="service-icon">🎁</span>
+      <h3 class="service-name" data-en="Gift Bundles" data-es="Paquetes de Regalo">Gift Bundles</h3>
+      <p class="service-desc" data-en="Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for birthdays, Pride, holidays &amp; more." data-es="Conjuntos de piezas hechas a mano, bellamente envueltos para encantar a alguien especial. Perfectos para cumpleaños, el Orgullo, fiestas y más.">Curated sets of handmade pieces, beautifully wrapped and ready to enchant someone special. Perfect for birthdays, Pride, holidays &amp; more.</p>
+      <a href="#shop" class="service-link" data-en="Shop Bundles →" data-es="Ver Paquetes →">Shop Bundles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="book-left reveal">
+    <p class="section-label" data-en="Custom Orders" data-es="Pedidos Personalizados">Custom Orders</p>
+    <h2 class="section-title" data-en="Request something <em>just for you</em>" data-es="Pide algo <em>solo para ti</em>">Request something <em>just for you</em></h2>
+    <p class="book-body" data-en="Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours." data-es="Cada pieza personalizada comienza con una conversación. Cuéntame tu visión — los colores, la sensación, la magia que quieres — y crearé algo verdaderamente tuyo.">Every custom piece begins with a conversation. Tell me your vision — the colors, the feeling, the magic you want woven in — and I'll craft something truly yours.</p>
+    <ul class="perks">
+      <li data-en="Fully unique, made to your specifications" data-es="Totalmente único, hecho a tus especificaciones">Fully unique, made to your specifications</li>
+      <li data-en="Pride flags, fandoms, characters & more" data-es="Banderas del orgullo, fandoms, personajes y más">Pride flags, fandoms, characters &amp; more</li>
+      <li data-en="Progress photos throughout the process" data-es="Fotos del proceso durante la creación">Progress photos throughout the process</li>
+      <li data-en="Ships anywhere in the US" data-es="Envíos a cualquier lugar de EE.UU.">Ships anywhere in the US</li>
+    </ul>
+    <a href="#" class="btn-primary" data-en="View Portfolio 🌸" data-es="Ver Portafolio 🌸">View Portfolio 🌸</a>
+  </div>
+  <div class="book-right" id="contact">
+    <p class="form-title" data-en="Begin your <em>commission</em>" data-es="Inicia tu <em>encargo</em>">Begin your <em>commission</em></p>
+    <div class="form">
+      <div class="form-row">
+        <div class="field"><label data-en="Your Name" data-es="Tu Nombre">Your Name</label><input type="text" data-placeholder-en="Aisling O'Brien" data-placeholder-es="María García" placeholder="Aisling O'Brien"/></div>
+        <div class="field"><label data-en="Email" data-es="Correo Electrónico">Email</label><input type="email" placeholder="you@example.com"/></div>
+      </div>
+      <div class="field">
+        <label data-en="What would you like made?" data-es="¿Qué te gustaría que hiciera?">What would you like made?</label>
+        <select>
+          <option data-en="Choose a category…" data-es="Elige una categoría…">Choose a category…</option>
+          <option data-en="Wearable (shawl, beanie, etc.)" data-es="Ropa (chal, gorro, etc.)">Wearable (shawl, beanie, etc.)</option>
+          <option data-en="Amigurumi / Plushie" data-es="Amigurumi / Peluche">Amigurumi / Plushie</option>
+          <option data-en="Pride Blanket" data-es="Cobija del Orgullo">Pride Blanket</option>
+          <option data-en="Home Décor" data-es="Decoración del Hogar">Home Décor</option>
+          <option data-en="Bag or Tote" data-es="Bolsa o Tote">Bag or Tote</option>
+          <option data-en="Gift Bundle" data-es="Paquete de Regalo">Gift Bundle</option>
+          <option data-en="Pattern (digital)" data-es="Patrón (digital)">Pattern (digital)</option>
+          <option data-en="Something else…" data-es="Algo más…">Something else…</option>
+        </select>
+      </div>
+      <div class="field">
+        <label data-en="Tell me about your vision" data-es="Cuéntame tu visión">Tell me about your vision</label>
+        <textarea rows="4" data-placeholder-en="Colors, characters, pride flag, feelings, references — the more detail the better…" data-placeholder-es="Colores, personajes, bandera del orgullo, sensaciones, referencias — cuantos más detalles, mejor…" placeholder="Colors, characters, pride flag, feelings, references — the more detail the better…"></textarea>
+      </div>
+      <button class="btn-primary" style="align-self:flex-start;" data-en="Send Request ✦" data-es="Enviar Pedido ✦">Send Request ✦</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="reveal" style="text-align:center;">
+    <p class="section-label" data-en="From the Coven" data-es="De Nuestras Clientas">From the Coven</p>
+    <h2 class="section-title" data-en="What our customers say" data-es="Lo que dicen nuestras clientas">What our customers say</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text" data-en='"The forest fox plushie I ordered for my daughter is absolutely magical. She named him Bramble and he hasn't left her side."' data-es='"El peluche del zorro que pedí para mi hija es absolutamente mágico. Lo llamó Bramble y no se ha separado de él."'>"The forest fox plushie I ordered for my daughter is absolutely magical. She named him Bramble and he hasn't left her side."</p>
+      <span class="test-author">— Siobhán M. · Chicago</span>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text" data-en='"My pride blanket arrived just in time for the parade. I literally cried — the colors were perfect and the quality is incredible."' data-es='"Mi cobija del orgullo llegó justo a tiempo para el desfile. Lloré de verdad — los colores eran perfectos y la calidad es increíble."'>"My pride blanket arrived just in time for the parade. I literally cried — the colors were perfect and the quality is incredible."</p>
+      <span class="test-author">— Rowan T. · Madison</span>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text" data-en='"Gifted the frog amigurumi to my best friend. She screamed. I'm ordering three more. The frog energy is immaculate."' data-es='"Le regalé el amigurumi rana a mi mejor amiga. Gritó de emoción. Ya estoy pidiendo tres más. La energía rana es inmaculada."'>"Gifted the frog amigurumi to my best friend. She screamed. I'm ordering three more. The frog energy is immaculate."</p>
+      <span class="test-author">— Elena R. · Milwaukee</span>
     </div>
   </div>
 </section>
@@ -468,9 +709,9 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
 <!-- NEWSLETTER -->
 <section class="newsletter">
   <div class="reveal" style="position:relative;z-index:2;">
-    <p class="section-label" data-en="Stay in the Circle" data-es="Mantente en el Círculo">Stay in the Circle</p>
-    <h2 class="section-title" data-en="New drops, patterns &amp;<br><em>ancestral dispatches</em>" data-es="Novedades, patrones &amp;<br><em>mensajes ancestrales</em>">New drops, patterns &amp;<br><em>ancestral dispatches</em></h2>
-    <p class="newsletter-sub" data-en="New products, fair dates, free patterns, and behind-the-scenes magic — straight to your inbox." data-es="Nuevos productos, fechas de ferias, patrones gratis y magia entre bastidores — directo a tu correo.">New products, fair dates, free patterns, and behind-the-scenes magic — straight to your inbox.</p>
+    <p class="section-label" data-en="Join the Circle" data-es="Únete al Círculo">Join the Circle</p>
+    <h2 class="section-title" data-en="New drops, patterns & frog dispatches 🐸" data-es="Novedades, patrones y noticias rana 🐸">New drops, patterns &amp; frog dispatches 🐸</h2>
+    <p class="newsletter-sub" data-en="Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox." data-es="Lanzamientos de temporada, magia entre bastidores y descuentos exclusivos — directo a tu correo.">Seasonal launches, behind-the-scenes magic, and exclusive discounts — straight to your inbox.</p>
     <div class="nl-form">
       <input type="email" data-placeholder-en="your@email.com" data-placeholder-es="tu@correo.com" placeholder="your@email.com"/>
       <button data-en="Subscribe ✦" data-es="Suscribirse ✦">Subscribe ✦</button>
@@ -482,25 +723,24 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">Avyda Creations 🧶</div>
-      <p class="footer-tagline" data-en="Stitched with ancestral love.<br>Latina-owned. Fae-inspired.<br>Handmade in Madison, WI." data-es="Tejido con amor ancestral.<br>De dueñas latinas. Inspirado en las hadas.<br>Hecho a mano en Madison, WI.">Stitched with ancestral love.<br>Latina-owned. Fae-inspired.<br>Handmade in Madison, WI.</p>
+      <div class="footer-logo">Avyda Creations 🐸</div>
+      <p class="footer-tagline" data-en="Queer-owned handmade crochet rooted in fae magic,<br>frog energy & love.<br>Made with 💜 in Madison, WI." data-es="Crochet artesanal de dueñas queer, arraigado en<br>magia de hadas, energía rana y amor.<br>Hecho con 💜 en Madison, WI.">Queer-owned handmade crochet rooted in fae magic,<br>frog energy &amp; love.<br>Made with 💜 in Madison, WI.</p>
     </div>
     <div class="footer-col">
       <h4 data-en="Shop" data-es="Tienda">Shop</h4>
       <ul>
-        <li><a href="#" data-en="Frog Hats" data-es="Gorros Rana">Frog Hats</a></li>
+        <li><a href="#" data-en="Wearables" data-es="Ropa">Wearables</a></li>
         <li><a href="#" data-en="Amigurumi" data-es="Amigurumi">Amigurumi</a></li>
-        <li><a href="#" data-en="Shawls & Wraps" data-es="Chales">Shawls & Wraps</a></li>
-        <li><a href="#" data-en="Dolls" data-es="Muñecas">Dolls</a></li>
-        <li><a href="#" data-en="Free Patterns" data-es="Patrones Gratis">Free Patterns</a></li>
+        <li><a href="#" data-en="Pride Collection" data-es="Colección Orgullo">Pride Collection</a></li>
+        <li><a href="#" data-en="Patterns" data-es="Patrones">Patterns</a></li>
+        <li><a href="#" data-en="Gift Bundles" data-es="Regalos">Gift Bundles</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 data-en="Info" data-es="Info">Info</h4>
+      <h4 data-en="Craft" data-es="Artesanía">Craft</h4>
       <ul>
-        <li><a href="#" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
-        <li><a href="#" data-en="Commissions" data-es="Encargos">Commissions</a></li>
-        <li><a href="#" data-en="Vendor Fairs" data-es="Ferias">Vendor Fairs</a></li>
+        <li><a href="#" data-en="Custom Orders" data-es="Pedidos">Custom Orders</a></li>
+        <li><a href="#" data-en="Care Instructions" data-es="Cuidado">Care Instructions</a></li>
         <li><a href="#" data-en="Shipping Info" data-es="Envíos">Shipping Info</a></li>
         <li><a href="#" data-en="Returns" data-es="Devoluciones">Returns</a></li>
       </ul>
@@ -508,9 +748,9 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
     <div class="footer-col">
       <h4 data-en="Connect" data-es="Conecta">Connect</h4>
       <ul>
-        <li><a href="#">Instagram @avyda.creations</a></li>
-        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Instagram</a></li>
         <li><a href="#">Pinterest</a></li>
+        <li><a href="#">TikTok</a></li>
         <li><a href="#" data-en="Etsy Shop" data-es="Tienda Etsy">Etsy Shop</a></li>
         <li><a href="#" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
@@ -518,58 +758,52 @@ footer{background:#040210;padding:4rem 3rem 2rem;border-top:1px solid var(--bord
   </div>
   <div class="footer-bottom">
     <span>© 2026 Avyda Creations · avydacreations.com</span>
-    <span data-en="Stitched with love for Grandma Theresa 🌺" data-es="Tejido con amor para la abuela Theresa 🌺">Stitched with love for Grandma Theresa 🌺</span>
+    <span data-en="Made with 🧶 💜 & frog energy in Madison, WI" data-es="Hecho con 🧶 💜 y energía rana en Madison, WI">Made with 🧶 💜 &amp; frog energy in Madison, WI</span>
   </div>
 </footer>
 
 <script>
-/* STARS */
-const starsLayer = document.getElementById('stars-layer');
-for(let i=0;i<180;i++){
-  const s=document.createElement('div');
-  s.className='star';
-  const size=Math.random()*2.5+0.5;
-  s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:${Math.random()*5}s;--max-op:${0.4+Math.random()*0.6};`;
-  starsLayer.appendChild(s);
-}
-
-/* FIREFLIES */
-for(let i=0;i<14;i++){
-  const f=document.createElement('div');
-  f.className='firefly';
-  const r=()=>(Math.random()*200-100)+'px';
-  f.style.cssText=`top:${10+Math.random()*80}%;left:${5+Math.random()*85}%;--dur:${6+Math.random()*8}s;--delay:${Math.random()*6}s;--x1:${r()};--y1:${r()};--x2:${r()};--y2:${r()};--x3:${r()};--y3:${r()};`;
-  document.body.appendChild(f);
-}
-
-/* NAV SHADOW */
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{
-  nav.style.boxShadow=window.scrollY>30?'0 4px 30px rgba(155,112,212,0.2)':'';
+/* ── SCROLL SHADOW ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 30 ? '0 4px 30px rgba(201,112,176,0.2)' : 'none';
 });
 
-/* SCROLL REVEAL */
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target);}
+/* ── REVEAL ON SCROLL ── */
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+      obs.unobserve(e.target);
+    }
   });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
 
-/* LANGUAGE */
-function setLang(lang){
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===lang.toUpperCase()));
-  document.documentElement.lang=lang;
-  document.querySelectorAll('[data-en][data-es]').forEach(el=>{
-    const t=el.getAttribute('data-'+lang);
-    if(t!==null)el.innerHTML=t;
+/* ── LANGUAGE SWITCHER ── */
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
   });
-  document.querySelectorAll('label[data-en]').forEach(el=>el.textContent=el.getAttribute('data-'+lang));
-  document.querySelectorAll('[data-placeholder-en]').forEach(el=>{
-    const a='data-placeholder-'+lang;
-    if(el.hasAttribute(a))el.placeholder=el.getAttribute(a);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-en][data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text !== null) el.innerHTML = text;
   });
-  document.querySelectorAll('select option[data-en]').forEach(el=>el.textContent=el.getAttribute('data-'+lang));
+  document.querySelectorAll('label[data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    const attr = 'data-placeholder-' + lang;
+    if (el.hasAttribute(attr)) el.placeholder = el.getAttribute(attr);
+  });
+  document.querySelectorAll('select option[data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
 }
 </script>
 </body>
